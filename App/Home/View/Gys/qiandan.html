@@ -1,0 +1,52 @@
+<include file="Public/header" />
+<div class="mui-index">
+    <header class="mui-bar mui-bar-nav">
+        <a href="<{:U('gys/index')}>" class="mui-iconl"></a>
+        <h1 class="mui-title">签单管理</h1>
+    </header>
+
+    <!--<div class="clearfix orderTab">-->
+    <!--<li <eq name="status" value="3">class="orderOn"</eq> >-->
+    <!--<a href="<{:U('Jms/sellOrder')}>?status=3">待发货</a>-->
+    <!--</li>-->
+    <!--<li <eq name="status" value="4">class="orderOn"</eq> >-->
+    <!--<a href="<{:U('Jms/sellOrder')}>?status=4">待确认收货</a>-->
+    <!--</li>-->
+    <!--<li <eq name="status" value="6">class="orderOn"</eq> >-->
+    <!--<a href="<{:U('Jms/sellOrder')}>?status=6">已完成</a>-->
+    <!--</li>-->
+    <!--</div>-->
+
+    <div class="clearfix allOrder">
+        <volist name="list" id="vo">
+            <li>
+                <dl class="clearfix">
+                    <dt>订单状态：<{$OrderStatus[$vo['state']]}></dt>
+                    <dd>
+                        <a href="#">
+                            <div class="orderImg"><img src="<{$picArr[$vo['gid']]}>"></div>
+                            <div class="orderInfo">
+                                <p>订单编号：<{$vo.num}></p>
+                                <p>订单金额：¥<{$vo.price}></p>
+                                <p>订单数量：¥<{$vo.ddage}></p>
+                                <p>消费者：¥<{$vo.uname}></p>
+                                <p>下单时间：<{$vo.time}></p>
+                            </div>
+                            <!--<em class="orderIco"></em>-->
+                        </a>
+                    </dd>
+                </dl>
+                <div class="orderBtn clearfix">
+                    <a href="tel:<{$vo.phone}>" class="fl">订单跟踪</a>
+                    <!--<a href="<{:U('user/myOrder')}>?id=<{$vo.oid}>" class="fr">取消订单</a>-->
+                    <eq name="vo.state" value="3">
+                        <a href="<{:U('jms/doSell')}>?id=<{$vo.oid}>&ac=4" class="fr">我已发货</a>
+                    </eq>
+                </div>
+            </li>
+        </volist>
+        <div class="mui-pager"><{$page}></div>
+    </div>
+</div>
+</body>
+</html>

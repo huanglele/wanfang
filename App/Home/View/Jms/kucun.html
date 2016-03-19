@@ -1,0 +1,34 @@
+<include file="Public/header" />
+<div class="mui-index">
+    <header class="mui-bar mui-bar-nav">
+        <a href="<{:U('jms/index')}>" class="mui-iconl"></a>
+        <h1 class="mui-title">库存管理</h1>
+    </header>
+
+    <div class="kuTab clearfix">
+        <li><a href="<{:U('jms/goods')}>">产品</a></li>
+        <li class="kuOn"><a href="#">库存</a></li>
+        <li><a href="<{:U('jms/shangjia')}>">商家</a></li>
+    </div>
+
+    <div class="kuList">
+        <ul class="clearfix">
+            <li class="tab">
+                <span>产品名称</span>
+                <span>库存</span>
+                <span>状态</span>
+            </li>
+            <volist name="list" id="v">
+                <li class="cur">
+                    <span><{$v.gname}></span>
+                    <span><{$v.num}></span>
+                    <span><elt name="v.num" value="10">需补货<else />正常</elt></span>
+                </li>
+            </volist>
+        </ul>
+    </div>
+
+    <div class="mui-pager"><{$page}></div>
+</div>
+</body>
+</html>

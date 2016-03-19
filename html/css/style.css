@@ -1,0 +1,374 @@
+*{margin:0; padding:0; outline:none; border:0;}
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,pre,a,abbr,big,code,del,dfn,em,img,ins,q,s,samp,small,strike,strong,sub,sup,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,tbody,tfoot,thead,tr,th,td,input{margin:0; padding:0; border:0; outline:none}
+h1,h2,h3,h4,h5{font-weight:normal;}
+ul,li{list-style:none}
+img{border:none;}
+label{cursor:default}
+em{font-style:normal;}
+p{display:block;}
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	background: #f2f4f4;
+	color: #333;
+	font-family: "microsoft yahei", "微软雅黑";
+}
+/*clear*/
+.clearfix:after{content:"\20"; display:block; clear:both;}
+.clearfix{zoom:1}
+.clear{clear: both; overflow:hidden; font-size:0; line-height:0; height:0;}
+a{ color: #333;}
+a:hover{ color: #b7211a;}
+
+.mui-index{ padding:44px 0 54px;}
+.mui-bar{ background: #b7211a; padding: 0; -webkit-box-shadow: 0 0px 0px #b7211a; box-shadow: 0 0px 0px #b7211a;}
+.mui-bar .mui-title{ color: #fff;}
+.mui-bar .mui-iconl{ background: url(../images/goBack.png) no-repeat; width: 44px; height: 44px; overflow: hidden; display: block; float: left;}
+.mui-bar .mui-iconl1{ background: url(../images/memberIco.png) no-repeat; width: 44px; height: 44px; overflow: hidden; display: block; float: left;}
+.mui-bar .mui-iconr{ background: url(../images/buyBtn.png) no-repeat; width: 44px; height: 44px; overflow: hidden; display: block; float: right;}
+.mui-bar .mui-iconrType{ background: url(../images/type.png) no-repeat; width: 44px; height: 44px; overflow: hidden; display: block; float: right;}
+
+.mui-bar-search{ position: absolute; top: 5px; width: 100%;}
+.mui-bar-searchBox{ background: #fff; border-radius: 16px; height: 32px; line-height: 32px; margin: 0 44px; overflow: hidden;}
+.mui-bar-searchBox dt{ width: 80%; float: left;}
+.mui-bar-searchBox .ipt{ background: none; border: 0; font-family: "微软雅黑"; font-size: 14px; margin: 0; height: 30px;}
+.mui-bar-searchBox dd{ width: 20%; float: right;}
+.mui-bar-searchBox dd .btn{ height: 32px; width: 100%; padding: 0; background: url(../images/searchBtn1.png) no-repeat center center; overflow: hidden; border: 0; border-radius: 0 16px 16px 0;}
+
+.banner{ width: 100%;}
+.banner img{ width: 100%; display: block;}
+.search{ padding: 10px;}
+.search dt{ width: 85%; float: left;}
+.search dt .ipt{ border-radius: 3px 0 0 3px; padding: 10px; border: 0; margin-bottom: 0;}
+.search dd{ width: 15%; float: right;}
+.search .btn{ width: 100%; background:#dde0e1 url(../images/searchBtn.png) no-repeat center center; border-radius: 0 3px 3px 0; border: 0; padding: 10px 0;}
+
+.muiType{ background: #fff; padding: 10px 0; width: 100%;}
+.muiType li{ float: left; width: 25%; text-align: center;}
+.muiType li span{ display: block; width: 56px; height: 56px; margin: 0 auto;}
+.muiType li span.icon1{ background: url(../images/icon1.png) no-repeat;}
+.muiType li span.icon2{ background: url(../images/icon2.png) no-repeat;}
+.muiType li span.icon3{ background: url(../images/icon3.png) no-repeat;}
+.muiType li span.icon4{ background: url(../images/icon4.png) no-repeat;}
+.muiType li a{ color: #000; font-size: 14px;}
+
+.mui-shop{ width: 100%; padding-top: 10px;}
+.mui-shop dt{ width: 49%; float: left;}
+.mui-shop dt img{ display: block; width: 100%;}
+.mui-shop dd{ width: 49%; float: right;}
+.mui-shop dd img{ width: 100%; display: block;}
+.mui-shop dd.t1{ margin-bottom: 1.5%;}
+
+.muiList{ background: #fff; padding: 4px 0 0; width: 100%; margin-top: 10px;}
+.muiList .muiTit{ height: 34px; line-height: 34px; overflow: hidden;}
+.muiList .muiTit span{ display: block; height: 34px; border-left: 6px solid #574b9d; float: left; padding-left: 10px;}
+.muiList .muiTit a.more{ float: right; padding-right: 10px; font-size: 12px; color: #333;}
+.muiList .zhuti{ padding: 6px 0 0 6px;}
+.muiList .zhuti li{ width: 50%; float: left;}
+.muiList .zhuti li a{ display: block; padding:0 6px 6px 0;}
+.muiList .zhuti li a img{ width: 100%; border: 1px solid #cbcecf; display: block;}
+
+.muiList .jiameng{ padding: 6px 0 0 0; width: 100%; overflow: hidden;}
+.muiList .jiameng li{ width: 25%; float: left;}
+.muiList .jiameng li a{ display: block; padding:0 1px 1px 0;}
+.muiList .jiameng li a img{ width: 100%; display: block;}
+
+.muiList .newShop{ padding: 10px 0 0 0; width: 100%; overflow: hidden;}
+.muiList .newShopBox{ padding-right: 12px;}
+.muiList .newShop ul{ padding-left: 12px;}
+.muiList .newShop li{ width: 50%; float: left; margin-bottom: 12px;}
+.muiList .newShop li .newShop_img a{ display: block;}
+.muiList .newShop li .newShop_img a img{ width: 100%; display: block;}
+.muiList .newShop li dl{ display: block; border: 1px solid #cbcecf; padding: 8px;}
+.muiList .newShop li dl dt{ height: 48px; line-height: 24px; overflow: hidden;}
+.muiList .newShop li dl dd{ height: 32px; line-height: 32px; margin-top: 4px;}
+.muiList .newShop li dl dd span{ float: left; color: #eb6d08; font-family: arial; font-weight: bold; font-size: 18px;}
+.muiList .newShop li dl dd a.orderBtn{ float: right; display: block; width: 60px; height: 32px; line-height: 30px; text-align: center; color: #fff; background: #f60; border-radius: 3px;}
+
+.foot-btn{ background: #fff; position: fixed; width: 100%; left: 0; bottom: 0; z-index: 999; border-top: 1px solid #cbcecf; height: 54px; padding-top: 4px; overflow: hidden;}
+.foot-btn li{ float: left; width: 25%; list-style: none;}
+.foot-btn li a{ display: block; line-height: 20px; text-align: center; font-size: 14px; color: #000;}
+.foot-btn li a span{ display: block; width: 28px; height: 28px; margin: 0 auto;}
+.foot-btn li a span.foot-icon1{background: url(../images/ico1_1.png) no-repeat;}
+.foot-btn li a span.foot-icon2{background: url(../images/ico1_2.png) no-repeat;}
+.foot-btn li a span.foot-icon3{background: url(../images/ico1_3.png) no-repeat;}
+.foot-btn li a span.foot-icon4{background: url(../images/ico1_4.png) no-repeat;}
+
+.rank{ background: #fff; height: 38px; line-height: 38px; width: 100%;}
+.rank li{ width: 25%; text-align: center; float: left; font-size: 14px;}
+.rank li a.rankico1{ display: inline-block; background: url(../images/rankino.png) no-repeat right 12px; padding-right: 14px;}
+.rank li a.rankico2{ display: inline-block; background: url(../images/rankino1.png) no-repeat right 12px; padding-right: 14px;}
+
+.proList ul{ padding: 10px 0 0 10px;}
+.proList ul li{ float: left; width: 50%;}
+.proList ul li .newShopBox{ background: #fff; border: 1px solid #ecececaQ; margin-right: 10px; padding: 4px; margin-bottom: 10px;}
+.proList ul li .newShopBox .newShop_img img{ width: 100%;}
+.proList ul li .newShop_text{ border-top: 1px solid #ececec;}
+.proList ul li .newShop_text dt{ height: 30px; line-height: 30px; overflow: hidden; font-size: 14px;}
+.proList ul li .newShop_text dd{ height: 28px; line-height: 28px;overflow: hidden; font-size: 14px;}
+.proList ul li .newShop_text dd span.fl{ color: #ff5265; font-size: 16px; float: left;}
+.proList ul li .newShop_text dd span.fr{ float: right; color: #999;}
+.proList ul li .newShop_text dd span.fr em{ color: #000000;}
+
+.mui-pager{ font-size: 14px;}
+
+.service{ padding: 10px 10px 0;}
+.service li {margin-bottom: 10px;}
+.service li a{ display: block; padding: 10px; background: #fff; border-radius: 6px; }
+.service li span{ display: block; float: left; width: 60%; padding-left: 70px; line-height: 60px; font-size: 16px;}
+.service li span.serviceIco1{ background: url(../images/serviceIco1.png) no-repeat;}
+.service li span.serviceIco2{ background: url(../images/serviceIco2.png) no-repeat;}
+.service li span.serviceIco3{ background: url(../images/serviceIco3.png) no-repeat;}
+.service li span.serviceIco4{ background: url(../images/serviceIco4.png) no-repeat;}
+.service li span.serviceIco5{ background: url(../images/serviceIco5.png) no-repeat;}
+.service li span.serviceIco6{ background: url(../images/serviceIco6.png) no-repeat;}
+.service li em{ background: url(../images/serviceIco7.png) no-repeat; display: block; width: 10px; height: 20px; float: right; margin-top: 20px;}
+
+.servicePage{ padding: 10px 10px 0;}
+.servicePage li{ display: block; padding: 10px; background: #fff; border-radius: 6px; margin-bottom: 10px; position: relative;}
+.servicePage li .servicePage_img{ width: 80px; float: left;}
+.servicePage li .servicePage_img img{ width: 90%;}
+.servicePage li dl{ padding-left: 80px;}
+.servicePage li dl dt{ height: 26px; overflow: hidden; width: 100%;}
+.servicePage li dl dt span{ display: block; height: 26px; line-height: 26px; width: 60%; float: left; overflow: hidden;}
+.servicePage li dl dt .serviceStar{ width: 80px; float: right; background: url(../images/star.png) no-repeat left bottom; height: 16px; background-size: 80px; margin-top: 6px;}
+.servicePage li dl dt .serviceStarCon{ background: url(../images/star1.png) no-repeat left bottom; height: 16px; background-size: 80px;}
+.servicePage li dl dd{ height: 16px; font-size: 12px; overflow: hidden; line-height: 16px; width: 70%;}
+.servicePage li .serviceLinks{ position: absolute; top: 40px; right: 10px;}
+.servicePage li .serviceLinks a{ display: block;  border-radius: 2px; height: 20px; line-height: 20px; font-size: 12px; color: #fff; font-family: "宋体"; padding: 0 6px 0 20px;margin-bottom: 4px;}
+.servicePage li .serviceLinks a.service_order{background:#ff9201 url(../images/service_zx.png) no-repeat 2px 2px; background-size: 16px; }
+.servicePage li .serviceLinks a.service_tel{background:#ff9201 url(../images/service_tel.png) no-repeat 2px 2px; background-size: 16px; }
+
+.orderTab{ width: 100%;}
+.orderTab li:first-child{ width: 34%; border-left: 0;}
+.orderTab li{ float: left; width: 33%; background: #fff;}
+.orderTab li a{ float: left; width: 100%; padding: 10px 0; border-bottom: 1px solid #ddd; border-left: 1px solid #ddd; text-align: center; font-size: 16px;}
+.orderTab li.orderOn{ background: #ebecee;}
+
+.allOrder{ padding:0 10px;}
+.allOrder li{ margin: 10px 0;}
+.allOrder li dl{ background: #fff; border: 2px solid #000000; border-radius: 8px; padding: 6px;}
+.allOrder li dt{ font-size: 14px; line-height: 20px;}
+.allOrder li dd{ border-top: 1px dashed #ddd; margin-top: 6px; padding-top: 6px; position: relative;}
+.allOrder li dd a{ display: block;}
+.allOrder li dd .orderImg{ width: 60px; float: left;}
+.allOrder li dd .orderImg img{ width: 90%; display: block;}
+.allOrder li dd .orderInfo{ font-size: 12px;}
+.allOrder li dd .orderInfo p{ height: 18px; line-height: 18px; overflow: hidden; color: #000;}
+.allOrder li dd em.orderIco{ position: absolute; top: 20px; right: 0; background: url(../images/serviceIco7.png) no-repeat; display: block; width: 10px; height: 20px;}
+.orderBtn1{ margin-top: 14px; font-size: 16px;}
+.orderBtn1 a{ display: block; width: 40%; border-radius: 8px; text-align: center; padding: 6px 0;}
+.orderBtn1 a.fl{ float: left; background: #ab1b24; color: #fff;border: 1px solid #ab1b24;}
+.orderBtn1 a.fr{ float: right; background: #ebecee; border: 1px solid #aaaaaa;}
+
+.service_search{ padding: 10px;}
+.service_search dt{ padding-right: 50px;}
+.service_search dt .ipt{ border: 0; border-radius: 16px 0 0 16px; height: 31px; font-family: "微软雅黑"; font-size: 14px; margin-bottom: 0;}
+.service_search dd{ float: right; width: 50px;}
+.service_search dd .btn{ border-radius: 0 16px 16px 0; background:#fff url(../images/searchBtn1.png) no-repeat center center; width: 100%; border: 0;}
+
+.serviceBox{ background: #fff; padding: 10px; font-size: 14px;}
+.serviceBox li{ line-height: 20px; padding: 6px 0;}
+.serviceBox li:after{content:"\20"; display:block; clear:both;}
+.serviceBox li span{ display: block; height: 20px; line-height: 20px; overflow: hidden; width: 16.6%; float: left; text-align: center;}
+.serviceBox li.tab{ background: #e8e8e8; border: 1px solid #808080; color: #333; margin-bottom: 6px; border-radius: 4px;}
+
+.supply{ background: #fff; border-bottom: 1px solid #808080; padding: 10px 20px;}
+.supply dt{ float: left;}
+.supply dd{ float: right; color: #e70304;}
+
+.supplyBox{ background: #fff; padding: 10px; font-size: 14px;}
+.supplyBox li{ line-height: 20px; padding: 6px 0;}
+.supplyBox li:after{content:"\20"; display:block; clear:both;}
+.supplyBox li span{ display: block; height: 20px; line-height: 20px; overflow: hidden; width: 20%; float: left; text-align: center;}
+.supplyBox li.tab{ background: #e8e8e8; border: 1px solid #808080; color: #333; margin-bottom: 6px; border-radius: 4px;}
+
+.ku_member{ background: #fff; padding: 20px 10px 20px 20px;}
+.ku_member dt{ width: 90px; float: left;}
+.ku_member dt img{ width: 80px; border-radius: 80px;}
+.ku_member dd{ font-size: 16px;}
+.ku_member dd p{ padding: 10px 0; color: #000;}
+
+.kuTab{ border-bottom: 1px solid #d1d1d1; background: #fff; border-top: 1px solid #f0eff5;}
+.kuTab li{ float: left; width: 33%; text-align: center; border-left: 1px solid #f0eff5;}
+.kuTab li a{ display: block; width: 100%; font-size: 16px; padding: 6px 0;}
+.kuTab li:first-child{ border-left: 0; width: 34%;}
+.kuTab li.kuOn a{ background: #eaeaea;}
+
+.kuInfo{ border-top: 1px solid #f0eff5;}
+.kuInfo dd{border-bottom: 1px solid #f0eff5; background: #fff; padding: 12px 20px;}
+.kuInfo dt{ font-size: 16px; padding: 8px 20px; line-height: 30px; border-bottom: 1px solid #f0eff5; background: #fff;}
+.kuInfo dt .t1{ display: block; float: left; width: 36px; height: 30px; background:#fff url(../images/ku2.png) no-repeat;}
+.kuInfo dt .t2{ display: block; float: left; width: 36px; height: 30px; background:#fff url(../images/ku1.png) no-repeat;}
+
+.kuList{ background: #fff; padding: 14px 20px; font-size: 14px;}
+.kuList li{ line-height: 20px;}
+.kuList li:after{content:"\20"; display:block; clear:both;}
+.kuList li span{ display: block; line-height: 20px; overflow: hidden; width: 33%; float: left; text-align: center;padding: 6px 0;}
+.kuList li.tab{ background: #e8e8e8; border: 1px solid #808080; color: #333; margin-bottom: 6px; border-radius: 8px;}
+.kuList li.tab span{ border-left: 1px solid #808080;}
+.kuList li.tab span:first-child { border: 0;}
+
+.add{position: fixed; width: 100%; left: 0; bottom: 0; z-index: 999; overflow: hidden;}
+.add .dizhi{ display: block; width: 100%; height: 40px; text-align: center; background: #ef6a6b; color: #fff;}
+
+.exitBox{ margin-top: 10px; background: #fff; padding: 0 20px 10px;}
+.exitLine{ border: 1px solid #ededed; border-top: 0; height: 5px; line-height: 0; font-size: 0; overflow: hidden;}
+.exitLine1{ border: 1px solid #ededed; border-top: 0; height: 5px; line-height: 0; font-size: 0; overflow: hidden; background: url(../images/lineIco.png) no-repeat top right;}
+.exitBox dl{ padding-top: 10px;}
+.exitBox dl dt{ float: left; font-size: 14px; line-height: 36px;}
+.exitBox dl dd .exitIpt{ margin-bottom: 0; height: 36px; padding: 10px 0; border: 0; font-family: "微软雅黑"; color: #999; font-size: 14px;}
+.exitBox dl dd .exitIpt1{ margin-bottom: 0; height: 36px; padding: 10px 0; width: 100%; border: 0; font-family: "微软雅黑"; color: #999; font-size: 14px;}
+.exitBox dl.exitBoxT1 dt{ width: 36px;}
+.exitBox dl.exitBoxT1 dd{ padding-left: 36px;}
+.exitBox dl.exitBoxT2 dt{ width: 64px;}
+.exitBox dl.exitBoxT2 dd{ padding-left: 64px;}
+.exitBox dl.exitBoxT3 dt{ width: 100px;}
+.exitBox dl.exitBoxT3 dd{ padding-left: 100px;}
+.exitBox dl.exitBoxT4 dt{ width: 90px;}
+.exitBox dl.exitBoxT4 dd{ padding-left: 90px;}
+.exitBox dl.exitBoxT4{ padding-top: 4px;}
+.exitBox dl.exitBoxT5 dt{ width: 80px; line-height: 54px;}
+.exitBox dl.exitBoxT5 dd{ padding-left: 80px;}
+.exitBox dl.exitBoxT5 dd img{ height: 54px; line-height: 54px; border-radius: 50%;}
+.exitBox dl.exitBoxT6 dt{ width: 50px;}
+.exitBox dl.exitBoxT6 dd{ padding-left: 50px;}
+.exitBox dl.exitBoxT6 dd span{ display: block; float: left; font-size: 14px; margin-right: 20px; padding-top: 8px;}
+
+.loginTab{ padding: 20px 20px 0;}
+.loginTab li{ height: 30px; line-height: 30px; border-bottom: 2px solid #f2f4f4; float: right; font-size: 16px;}
+.loginTab li a{ display: block; padding: 0 4px;}
+.loginTab li.on a{ border-bottom: 2px solid #ef6a6b; color: #ef6a6b;}
+.loginIpt{ padding: 10px 6px 0;}
+.loginIpt .ipt{font-family: "微软雅黑"; color: #999; font-size: 14px; margin-bottom: 0; padding: 10px;}
+.loginIpt1{ padding: 40px 6px 0;}
+.loginIpt1 .btn{font-family: "微软雅黑"; background: #ef6a6b; color: #999; font-size: 16px; padding: 10px 0; border: 0; width: 100%; color: #fff;}
+
+.loginOther{ padding: 10px 10px 0;}
+.loginOther span.fr{ font-size: 14px; float: right;}
+.loginOther span.fr a{ color: #1ca1e2;}
+.loginOther span.fl{ float: left;}
+.loginOther span.fl strong{ display: block; font-size: 14px; font-weight: normal;}
+.loginOther span.fl a{ display: inline-block; width: 44px; height: 44px; margin-top: 6px;}
+.loginOther span.fl a.qq{ background: url(../images/login.png) no-repeat;}
+.loginOther span.fl a.wx{ background: url(../images/login.png) no-repeat top right;}
+
+.buyTab{ width: 100%;}
+.buyTab li{ height: 38px; line-height: 38px; float: left; width: 33%; font-size: 14px; text-align: center; background: #fff;}
+.buyTab li:first-child{ width: 34%;}
+.buyTab li.on{ border-bottom: 1px solid #ef6a6b; color: #ef6a6b;}
+
+.buyAll{ height: 40px; line-height: 40px; overflow: hidden;}
+.buyAll dt{ width: 70%; float: left; background: #fff;}
+.buyAll dt span{ font-size: 14px; padding: 0 10px;}
+.buyAll dt span em{ color: #f00; font-size: 18px; font-family: arial;}
+.buyAll dd{ width: 30%; float: left;}
+.buyAll dd a{ width: 100%; display: block; height: 40px; font-size: 16px; text-align: center; background: #ab1b24; color: #fff;}
+
+.buyList li{ margin-top: 20px; background: #fff; border: 1px solid #ccc; border-radius: 10px; padding: 20px 10px; position: relative;}
+.buyList dt{ width: 90px; float: left;}
+.buyList dt img{ width: 80px; height: 80px; display: block;}
+.buyList dd{ padding-left: 90px;}
+.buyList dd h2{ font-size: 14px; width: 90%; height: 40px; line-height: 20px; overflow: hidden;}
+.buyList .buyN{ margin-top: 6px; line-height: 34px; }
+.buyList .buyN em{ color: #ed5152; margin-right: 4px; font-weight: bold;}
+.buyList .buyNum{ float: left;margin-right: 4px;}
+.buyList .del{ display: block; position: absolute; width: 20px; height: 20px; text-align: center; line-height: 18px; font-family: arial; font-size: 20px; background: #cccccc; border-radius: 50%; color: #fff; top: 6px; right: 6px;}
+
+.kubuyList{ padding-top: 10px;}
+.kubuyList .kubuyTit{ background: #fafafa; border-bottom: 1px solid #e6e6e6; border-top: 1px solid #e6e6e6; padding:8px 10px; font-size: 14px;}
+.kubuyList .kubox{ padding: 10px 10px 10px 30px; background: #fff; position: relative;}
+.kubuyList .kubox dl{ float: left; width: 80%;}
+.kubuyList .kubox dl dt{ float: left; width: 50px;}
+.kubuyList .kubox dl dt img{ width: 50px; height: 50px;}
+.kubuyList .kubox dl dd{ padding-left: 54px;}
+.kubuyList .kubox dl dd h2{ font-size: 14px; height: 20px; line-height: 20px; overflow: hidden;}
+.kubuyList .kubox dl dd p{ height: 20px; line-height: 20px;}
+.kubuyList .kubox dl dd .kuico a{ display: block; float: left; width: 22px; height: 24px; margin-right: 4px;}
+.kubuyList .kubox dl dd a.tui{ background: url(../images/kuico1.png) no-repeat;}
+.kubuyList .kubox dl dd a.phone{ background: url(../images/kuico2.png) no-repeat;}
+.kubuyList .kubox dl dd a.er{ background: url(../images/kuico3.png) no-repeat;}
+.kubuyList .kuExit{ float: right; width: 20%;}
+.kubuyList .kuExit a{ display: block; font-size: 12px; float: left; margin-top: 6px;}
+.kubuyList .kuExit a.exit{ background: url(../images/kuico4.png) no-repeat top center; padding: 20px 2px 0;}
+.kubuyList .kuExit a.del{ background: url(../images/kuico5.png) no-repeat top center; padding: 20px 2px 0;}
+.kubuyList .kuadd{ display: block; position: absolute; width: 16px; height: 16px; text-align: center; line-height: 18px; font-family: arial; font-size: 18px; background: #cccccc; border-radius: 50%; color: #fff; top: 26px; left: 8px;}
+
+.memberInfo{ background:#fff url(../images/memberBg.png) no-repeat; background-size: 100% 120px; height: 120px;}
+.memberInfo dt{ margin: 0 auto; width: 62px; padding-top: 10px;}
+.memberInfo dt img{ width: 60px; height: 60px; border: 1px solid #fff; border-radius: 50%;}
+.memberInfo dd{ text-align: center; line-height: 20px; font-size: 14px;}
+.memberInfo dd p{ font-weight: bold; color: #000000;}
+
+.memberInfo1{ background:#fff url(../images/memberBg1.png) no-repeat; background-size: 100% 120px; height: 120px;}
+.memberInfo1 dl{ padding: 30px 30px 0;}
+.memberInfo1 dt{ float: left; width: 62px;}
+.memberInfo1 dt img{ width: 60px; height: 60px; border: 1px solid #fff; border-radius: 50%;}
+.memberInfo1 dd{ float: left; line-height: 62px; color: #fff; margin-left: 20px; font-size: 16px;}
+.memberList{ width: 100%;}
+.memberList li { border-bottom: 1px solid #ececec;}
+.memberList li.t1{ margin-top: 10px;border-top: 1px solid #ececec;}
+.memberList li a{ display: block; padding: 0 10px; background: #fff;}
+.memberList li span{ display: block; float: left; width: 60%; padding-left: 30px; line-height: 40px; font-size: 16px;}
+.memberList li span.serviceIco1{ background: url(../images/memberIco1.png) no-repeat 0 6px;}
+.memberList li span.serviceIco2{ background: url(../images/memberIco2.png) no-repeat 0 6px;}
+.memberList li span.serviceIco3{ background: url(../images/memberIco3.png) no-repeat 0 6px;}
+.memberList li span.serviceIco4{ background: url(../images/memberIco4.png) no-repeat 0 6px;}
+.memberList li span.serviceIco5{ background: url(../images/memberIco5.png) no-repeat 0 6px;}
+.memberList li span.serviceIco6{ background: url(../images/memberIco6.png) no-repeat 0 6px;}
+.memberList li span.serviceIco7{ background: url(../images/memberIco7.png) no-repeat 0 6px;}
+.memberList li span.serviceIco8{ background: url(../images/memberIco8.png) no-repeat 0 6px;}
+.memberList li em{ background: url(../images/serviceIco7.png) no-repeat; display: block; width: 10px; height: 20px; float: right; margin-top: 10px;}
+
+.memberIco{ background: #fff; width: 100%; padding: 16px 0;}
+.memberIco li{ width: 20%; float: left;}
+.memberIco li a{ display: block; width: 100%; padding-top: 40px; text-align: center; font-size: 14px;}
+.memberIco li a.icon1{ background: url(../images/member1.png) no-repeat top center;}
+.memberIco li a.icon2{ background: url(../images/member2.png) no-repeat top center;}
+.memberIco li a.icon3{ background: url(../images/member3.png) no-repeat top center;}
+.memberIco li a.icon4{ background: url(../images/member4.png) no-repeat top center;}
+.memberIco li a.icon5{ background: url(../images/member5.png) no-repeat top center;}
+
+.pro_about{ width: 100%; background: #fff;}
+.pro_about .pro_aboutImg{ width: 100%;}
+.pro_about .pro_aboutImg img{ display: block; width: 100%;}
+.pro_aboutTitle{ padding: 10px;}
+.pro_aboutTitle dt{ width: 85%; font-size: 14px; line-height: 20px; float: left;}
+.pro_aboutTitle dd{ border-left: 1px solid #ddd; width: 14%; float: right;}
+.pro_aboutTitle dd a{ display: block; font-size: 14px; float: right; background: url(../images/sc.png) no-repeat top center; padding: 20px 4px 0;}
+.pro_aboutPrice{ color: #999; font-size: 12px; padding: 0 10px;}
+.pro_aboutPrice b{ font-size: 18px; font-family: arial; margin-right: 6px; color: #eb5352;}
+.pro_aboutNum{ padding: 10px 10px;}
+.pro_aboutNum dt{ font-size: 14px; float: left;}
+.pro_aboutNum dt strong{ font-weight: normal;}
+.pro_aboutNum dd{ float: right; font-size: 14px; line-height: 32px;}
+.pro_aboutNum dd b{ font-size: 18px; font-family: arial; color: #eb5352;}
+
+.proCon{ margin: 10px; background: #fff;}
+.proCon img{ width: 100%;}
+.buyGo{ background: #fff; padding: 10px 0; border-top: 1px solid #ccc;}
+.buyGo span{ display: block; width: 50%;float: left;}
+.buyGo span a{ display: block; height: 40px; line-height: 40px; text-align: center; border-radius: 6px; font-size: 14px; width: 90%; margin: 0 auto;}
+.buyGo span a.buying{ background: #fff0f1; color: #c40001; border: 1px solid #c40001;}
+.buyGo span a.buyadd{ background: #c40001; color: #fff; border: 1px solid #c40001;}
+
+.typeList{ width: 100%;}
+.typeList li .typeTitle{ padding: 10px 20px; border-bottom: 1px solid #d7d7d7;}
+.typeList li .typeTitle span{ display: block; height: 46px; padding-left: 54px; line-height: 46px; font-size: 16px; float: left;}
+.typeList li .typeTitle em{ display: block; float: right; width: 18px; height: 10px; overflow: h; margin-top: 20px;}
+.typeInfo{ border-bottom: 1px solid #d7d7d7; padding-bottom: 10px; width: 100%;}
+.typeInfo dt{ width: 100%; padding-top: 10px;}
+.typeInfo dt span{ display: block; height: 30px; line-height: 30px; overflow: hidden; width: 33.3%; float: left; font-size: 16px; border-left: 1px solid #d7d7d7; text-align: center; margin-bottom: 6px;}
+.typeInfo dt span:nth-child(1),.typeInfo dt span:nth-child(4),.typeInfo dt span:nth-child(7),.typeInfo dt span:nth-child(10),.typeInfo dt span:nth-child(13){ border-left: 0;}
+.typeInfo dd{ padding: 0 20px;}
+.typeInfo dd a.typeOther{display: block; height: 46px; padding-left: 54px; line-height: 46px; font-size: 16px; background: url(../images/typeico2.png) no-repeat;}
+.typeList li .typeTitle span.typeIco1{ background: url(../images/typeico1.png) no-repeat;}
+.typeList li .typeTitle span.typeIco2{ background: url(../images/typeico3.png) no-repeat;}
+.typeList li .typeTitle span.typeIco3{ background: url(../images/typeico4.png) no-repeat;}
+.typeList li .typeTitle span.typeIco4{ background: url(../images/typeico5.png) no-repeat;}
+.typeList li .typeTitle span.typeIco5{ background: url(../images/typeico6.png) no-repeat;}
+.typeList li .typeTitle span.typeIco6{ background: url(../images/typeico7.png) no-repeat;}
+.typeList li .typeTitle em.icon1{ background: url(../images/typeico8.png) no-repeat;}
+.typeList li .typeTitle em.icon2{ background: url(../images/typeico9.png) no-repeat;}

@@ -1,0 +1,44 @@
+UserController   //vip
+    |- initialize       //判断登录
+    |- login  (?from 'qq'、'wx')      //登录（绑定）
+    |- register (?from 'qq'、'wx')    //注册
+    |- index    //个人中心
+    |- addFav (? ac[do\undo])  //加入购物车或者收藏
+    |- myFav                    //我的收藏
+    |- myInfo               //我的信息
+    |- addCart               //添加购物车
+    |- delCart (?id)              //删除购物车
+    |- myCart               //我的购物车
+    |- myAddress            //配送地址列表
+    |- addAddress            //添加配送地址
+    |- delAddress  (?id)          //删除一个配送地址
+    |- password (old\new)        //修改密码
+    |- orderList            //我的订单列表
+    |- myOrder  (?id)            //查看单个订单
+
+
+
+IndexController
+    |- index                //显示首页
+    |- goods (?goods)                //商品列表
+    |- item             //查看详情
+    |- findOld             //健康查询
+    |- ajax_get_district             //ajax返回地区
+
+
+
+JmsController       //供应商
+    |- buyOrder             //采购订单列表
+    |- buyDetail   (?id)    //具体的某一个采购订单
+
+    |- sellOrder            //销售订单
+    |- sellDetail  (?id)    //具体的某一个销售订单
+
+    |- goods                //自己的商品列表
+    |- goodsDetail (?id)    //自己的一个商品详情
+
+
+
+
+GysController       //加盟商
+

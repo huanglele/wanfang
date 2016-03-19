@@ -1,0 +1,148 @@
+<script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+<include file="Public/header" />
+<div class="mui-index" style="padding-bottom: 60px;">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.go(-1)" class="mui-iconl"></a>
+        <h1 class="mui-title">商品详情</h1>
+    </header>
+
+    <div class="pro_about">
+        <div class="pro_aboutImg">
+            <img src="<{$info.jms_photo}>">
+        </div>
+        <dl class="clearfix pro_aboutTitle">
+            <dt><{$info.jms_gname}></dt>
+            <dd><a href="<{:U('user/addFav')}>?ac=do&id=<{$info.gid}>">收藏</a></dd>
+        </dl>
+        <div class="pro_aboutPrice">本店售价：<b>¥<{$info.jms_vipprice}></b>¥<{$info.jms_price}></div>
+        <dl class="clearfix pro_aboutNum">
+            <dt>
+                <strong>数量</strong>
+            <div class="mui-numbox">
+                <button id="btnmin" class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+                <input id="num" value="1" class="mui-numbox-input" type="number" />
+                <button id="btnadd" class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+            </div>
+            </dt>
+            <dd>商品总价：<b>¥<i id="allMoney"><{$info.jms_vipprice}></i></b></dd>
+        </dl>
+    </div>
+    <div class="buyTab" style="margin-top: 4px;">
+        <{$info.jms_info}>
+    </div>
+    <!--<div class="buyTab" style="margin-top: 4px;">
+        <ul class="clearfix">
+            <li class="on">图文详情</li>
+            <li>商品属性</li>
+            <li>评价(0)</li>
+        </ul>
+    </div>
+
+    <div class="tuwen">
+
+    </div>
+    <div class="proCon">
+        <img src="images/pic1.jpg">
+    </div>
+    <div class="proCon">
+        <img src="images/pic2.jpg">
+    </div>
+    <div class="proCon">
+        <img src="images/pic3.jpg">
+    </div>-->
+<script>
+    var loginUrl = "<{:U('user/login')}>";
+    $(window).ready(function(){
+        $('#btnmin').click(function(){
+            var num = $('#num').val();
+            if(num>1){
+                num--;
+            }
+            $('#num').val(num);
+            allMoney();
+        })
+        $('#btnadd').click(function(){
+            var num = $('#num').val();
+            num++;
+            $('#num').val(num);
+            allMoney();
+        })
+        $('#num').change(function(){
+            var num = $('#num').val();
+            if(isNaN(num)){
+                num = 1;
+            }
+            allMoney();
+        })
+        $('#buyadd').click(function(){
+            buyadd();
+        })
+        $('#buying').click(function(){
+            buying();
+        })
+    })
+    function allMoney(){
+        var danjia = "<{$info.jms_vipprice}>";
+        $('#allMoney').html(danjia*$('#num').val());
+    }
+    function buyadd(){
+        $.ajax({
+            url:"<{:U('user/addCart')}>",
+            data:{
+                id:"<{$info.jms_gid}>",
+                num:$('#num').val()
+            },
+            success:function(data){
+                if(data.status){
+                    alert('添加成功');
+                }else{
+                    alert('添加失败');
+                }
+            }
+        })
+    }
+    function buyadd(){
+        $.ajax({
+            url:"<{:U('user/addCart')}>",
+            data:{
+                id:"<{$info.jms_gid}>",
+                num:$('#num').val()
+            },
+            success:function(data){
+                if(data.status){
+                    alert('添加成功');
+                }else{
+                    alert('请先登录');
+                    window.location.href = loginUrl;
+                }
+            }
+        })
+    }
+    function buying(){
+        $.ajax({
+            url:"<{:U('user/addCart')}>",
+            data:{
+                id:"<{$info.jms_gid}>",
+                num:$('#num').val()
+            },
+            success:function(data){
+                if(data.status){
+                    window.location.href = data.url;
+                }else{
+                    alert('请先登录');
+                    window.location.href = loginUrl;
+                }
+            }
+        })
+    }
+</script>
+
+    <div class="add">
+        <div class="clearfix buyGo">
+            <span><a href="#" id="buying" class="buying">立即购买</a></span>
+            <span><a href="#" id="buyadd" class="buyadd">加入购物车</a></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

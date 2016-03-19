@@ -1,0 +1,31 @@
+<include file="Public/header" />
+<div class="mui-index">
+    <header class="mui-bar mui-bar-nav">
+        <a href="<{:U('gys/index')}>" class="mui-iconl"></a>
+        <h1 class="mui-title">账款统计</h1>
+    </header>
+
+    <div class="clearfix allOrder">
+        <php>$allMoney = 0;</php>
+        <volist name="list" id="vo">
+            <php>$allMoney+=$vo['num']</php>
+            <li>
+                <dl class="clearfix">
+                    <dt><{$Goods[$vo['gid']]['name']}></dt>
+                    <dd>
+                        <a href="#">
+                            <div class="orderImg"><img src="<{$Goods[$vo['gid']]['pic']}>"></div>
+                            <div class="orderInfo">
+                                <p>销售额：<{$vo.num}></p>
+                            </div>
+                        </a>
+                    </dd>
+                </dl>
+            </li>
+        </volist>
+    </div>
+
+    <div class="mui-pager">总营业额：<php>echo $allMoney;</php></div>
+</div>
+</body>
+</html>

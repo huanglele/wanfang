@@ -1,0 +1,29 @@
+<include file="Public/header" />
+
+<div class="mui-index" style="padding-bottom: 40px;">
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-iconl"></a>
+        <h1 class="mui-title">微信 ☞ 账户</h1>
+    </header>
+    <form action="<{:U('user/login')}>" method="post">
+        <div class="loginTab">
+            <ul class="clearfix">
+                <li><a href="<{:U('user/register')}>?from=wx">没有账户？</a></li>
+            </ul>
+        </div>
+
+        <div class="loginIpt">
+            <input type="text" name="vip_name" class="ipt" placeholder="用户名">
+        </div>
+        <div class="loginIpt">
+            <input type="password" name="vip_password" class="ipt" placeholder="密码">
+        </div>
+        <div class="loginIpt1">
+            <input type="submit" name="submit" class="btn" value="绑定">
+        </div>
+        <input type="hidden" name="from" value="wx">
+        <input type="hidden" name="openid" value="<{$openid}>">
+</form>
+</div>
+</body>
+</html>

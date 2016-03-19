@@ -1,0 +1,27 @@
+订单生成算法
+网站会员密码存储方式
+会话机制 使用的cookie 还是session 及存储的信息
+用户位置获取的方式 （IP、手动选择、还是其他方式）
+
+用户只能看加盟商的，加盟商只能看供应商的
+
+mp.weixin.qq.com
+3089366659@qq.com
+123123az
+
+appID wx00fbe435a120f2e0
+appSecret
+
+
+123.56.102.103:22   wanfang密码123123
+
+微信支付商户号
+1299868601
+商户平台登录帐号
+1299868601@1299868601
+商户平台登录密码
+
+hrbjjiatqingbokejiwanfangjixiang
+
+https://graph.qq.com/oauth2.0/token?client_id=101281325&client_secret=3a42524d51b7be1f6c83cfd420cbd9f8&code=F07C75FB7358087850AA4BFABFF6CC0A&grant_type=authorization_code&redirect_uri=http://wanfang.91yiso.com/index.php/index/qqlogincode=F07C75FB7358087850AA4BFABFF6CC0A&state=1
+https://graph.qq.com/oauth2.0/token?client_id=101281325&client_secret=3a42524d51b7be1f6c83cfd420cbd9f8&code=FBD2A4B3138D96CDCDBBDE48BF85DEAE&grant_type=authorization_code&redirect_uri=http://wanfang.91yiso.com/index.php/index/qqlogin

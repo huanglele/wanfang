@@ -1,0 +1,86 @@
+<include file="Public/header" />
+<style>
+    .adds .dizhi {
+        display: block;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background: #6AA3EF;
+        color: #fff;
+        margin-bottom: 20px;
+    }
+</style>
+<div class="mui-index">
+    <header class="mui-bar mui-bar-nav">
+        <a href="<{:U('user/index')}>" class="mui-iconl"></a>
+        <h1 class="mui-title">购物车</h1>
+    </header>
+    <form action="<{:U('user/buy')}>" method="post">
+        <div class="clearfix allOrder">
+            <volist name="list" id="vo">
+                <li>
+                    <dl class="clearfix">
+                        <dt><{$vo.vip_goods_name}></dt>
+                        <dd>
+                            <a href="<{:U('index/item')}>?id=<{$vo.vip_goods_id}>">
+                                <div class="orderImg"><img src="<{$vo.vip_goods_image}>"></div>
+                                <div class="orderInfo">
+                                    <p>单价：¥<{$vo.vip_goods_price}></p>
+                                    <p>数量：<{$vo.vip_goods_num}></p>
+                                    <p>商家：<{$vo.vip_store_name}></p>
+                                </div>
+                                <!--<em class="orderIco"></em>-->
+                            </a>
+                        </dd>
+                    </dl>
+                    <div class="orderBtn clearfix">
+                        <a href="<{:U('index/item')}>?id=<{$vo.vip_goods_id}>" class="fl">查看商品</a>
+                        <a href="<{:U('user/delCart')}>?id=<{$vo.vip_cart_id}>" class="fr">移除购物车</a>
+                    </div>
+                </li>
+            </volist>
+        </div>
+
+        <div class="clearfix allOrder">
+            <select name="addressid">
+                <volist name="adds" id="vo">
+                    <option value="<{$vo.id}>"><{$vo.ad}></option>
+                </volist>
+            </select>
+        </div>
+
+        <div class=" clearfix allOrder">
+            <div id="addInfo"></div>
+        </div>
+
+        <div class="adds">
+            <a href="<{:U('user/myaddress')}>" class="dizhi">管理地址</a>
+        </div>
+
+
+        <div class="add" style="position: relative;">
+            <button href="<{:U('user/buy')}>" type="submit" name="submit" class="dizhi">提交订单</button>
+        </div>
+    </form>
+
+<include file="Public/footer" />
+<script>
+    adds = <{$addsJosn}>;
+
+    $(window).ready(function(){
+        $('select[name="addressid"]').change(function(){
+            showAddress();
+        })
+        showAddress();
+    })
+
+    function showAddress(){
+        var id = $('select[name="addressid"]').val();
+        var info = adds[id];
+        var html = '<p>地址：'+info.city+info.district+info.address+'</p>';
+        html += '<p>收货人：'+info.vip_consignee+'</p>';
+        html += '<p>电话：'+info.mobile+'</p>';
+        $('#addInfo').html(html);
+    }
+</script>

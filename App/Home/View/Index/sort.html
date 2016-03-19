@@ -1,0 +1,46 @@
+<include file="Public/header" />
+<style>
+    .typeInfo{
+        display: none;
+    }
+</style>
+<div class="mui-index">
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-iconl"></a>
+    <h1 class="mui-title">所有分类</h1>
+</header>
+
+<div class="clearfix typeList">
+    <ul>
+        <foreach name="list" item="vo" key="k" >
+            <php>$icoNum = $k%6+1</php>
+            <li class="clearfix">
+                <div class="typeTitle clearfix">
+                    <a href="#"><span class="typeIco<{$icoNum}>"><{$vo.name}></span><em class="icon2"></em></a>
+                </div>
+                <dl class="typeInfo">
+                    <dt class="clearfix">
+                        <foreach name="vo['son']" item="v" >
+                            <span><a href="<{:U('index/goods')}>?kid=<{$v.jms_kid}>"><{$v.jms_kname}></a></span>
+                        </foreach>
+                    </dt>
+                </dl>
+            </li>
+        </foreach>
+    </ul>
+<script>
+    $(window).ready(function(){
+        $('.typeTitle').each(function(){
+            $(this).click(function(){
+                $(this).next().slideToggle('show');
+                var em = $('em',$(this));
+                if(em.hasClass('icon2')){
+                    em.removeClass('icon2').addClass('icon1');
+                }else{
+                    em.removeClass('icon1').addClass('icon2');
+                }
+            })
+        });
+    })
+</script>
+<include file="Public/footer" />

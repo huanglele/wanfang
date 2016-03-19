@@ -1,0 +1,50 @@
+<include file="Public/header" />
+
+<div class="mui-index" style="padding-bottom: 40px;">
+    <header class="mui-bar mui-bar-nav">
+        <a href="<{:U('user/index')}>" class="mui-iconl"></a>
+        <h1 class="mui-title">修改个人资料</h1>
+    </header>
+<form method="post" action="<{:U('user/myinfo')}>">
+    <div class="exitBox">
+
+        <dl class="clearfix exitBoxT1">
+            <dt>电话</dt>
+            <dd><input name="vip_phone" value="<{$info.vip_phone}>" type="text" class="exitIpt"></dd>
+        </dl>
+        <div class="exitLine"></div>
+
+        <dl class="clearfix exitBoxT1">
+            <dt>邮箱</dt>
+            <dd><input name="vip_email" value="<{$info.vip_email}>" type="text" class="exitIpt"></dd>
+        </dl>
+        <div class="exitLine"></div>
+
+        <dl class="clearfix exitBoxT1">
+            <dt>性别</dt>
+            <dd><input name="vip_sex" value="<{$info.vip_sex}>" type="text" class="exitIpt"></dd>
+        </dl>
+        <div class="exitLine"></div>
+
+        <dl class="clearfix exitBoxT1">
+            <dt>生日</dt>
+            <dd><input name="vip_birth" value="<{$info.vip_birth}>" type="text" class="exitIpt"></dd>
+        </dl>
+        <div class="exitLine"></div>
+
+        <dl class="clearfix exitBoxT1">
+            <dt>QQ</dt>
+            <dd><input name="vip_qq" value="<{$info.vip_qq}>" type="text" class="exitIpt1"></dd>
+        </dl>
+        <div class="exitLine1"></div>
+
+    </div>
+    <div class="add">
+        <button type="submit" name="submit" class="dizhi">修改</button>
+    </div>
+</form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<include file="Public/header" />
+<div class="mui-index">
+<header class="mui-bar mui-bar-nav">
+    <a href="<{:U('index/index')}>" class="mui-iconl"></a>
+    <h1 class="mui-title">肋老服务</h1>
+</header>
+
+<dl class="clearfix service_search">
+    <form method="get" action="<{:U('index/findOld')}>">
+        <dd><input type="submit"  class="btn" /></dd>
+        <dt><input type="text" name="v" class="ipt" value="<{$Think.get.v}>" placeholder="身份证/ID" /></dt>
+    </form>
+</dl>
+
+<div class="serviceBox">
+    <ul class="clearfix">
+        <li class="tab">
+            <span>查询ID</span>
+            <span>血压</span>
+            <span>心率</span>
+            <span>脂肪</span>
+            <span>血糖</span>
+            <span>地区</span>
+        </li>
+        <li class="cur">
+            <span>12345678</span>
+            <span>血压 低压90  高压110</span>
+            <span>心率75</span>
+            <span>血糖 3.9～6.7mmol/L</span>
+            <span>脂肪 2～5g/24h</span><br/>
+            <div>哈尔滨红旗大街56号</div>
+        </li>
+        <volist name="list" id="vo">
+            <li class="cur">
+                <span><{$vo.name}></span>
+                <span><{$vo.xueye}></span>
+                <span><{$vo.xinlv}></span>
+                <span><{$vo.zhifang}></span>
+                <span><{$vo.xuetang}></span><br/>
+                <div><{$vo.place}></div>
+            </li>
+        </volist>
+    </ul>
+</div>
+
+<include file="PUBLIC/footer" />

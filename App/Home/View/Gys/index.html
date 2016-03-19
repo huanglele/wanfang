@@ -1,0 +1,44 @@
+<include file="Public/header" />
+
+<div class="mui-index">
+    <header class="mui-bar mui-bar-nav" style="background: #eee;">
+        <a class="mui-iconl1"></a>
+        <h1 class="mui-title" style="color: #000;">供应商</h1>
+    </header>
+
+    <div class="memberInfo">
+        <dl class="clearfix">
+            <dt>
+                <img <empty name='Think.session.vip_pic'>src="__PUBLIC__/images/member.jpg"<else />src="<{$Think.session.gys_photo}>"</empty>">
+            </dt>
+            <dd>
+                <p>供应商：<{$Think.session.gys_leader}></p>
+                <{$Think.session.gys_nickname}>
+            </dd>
+        </dl>
+    </div>
+
+    <div class="clearfix memberList">
+        <li class="t1 clearfix">
+            <a href="<{:U('gys/myorder')}>" class="clearfix"><span class="serviceIco1">订单管理</span><em></em></a>
+        </li>
+        <li class="t1 clearfix">
+            <a href="<{:U('gys/qiandan')}>" class="clearfix"><span class="serviceIco2">签单管理</span><em></em></a>
+        </li>
+        <li class="t1 clearfix">
+            <a href="<{:U('gys/xiaoliang')}>" class="clearfix"><span class="serviceIco3">销量统计</span><em></em></a>
+        </li>
+        <li class="clearfix">
+            <a href="<{:U('gys/money')}>" class="clearfix"><span class="serviceIco4">帐款统计</span><em></em></a>
+        </li>
+        <!--<li class="clearfix">-->
+            <!--<a href="#" class="clearfix"><span class="serviceIco5">银行卡</span><em></em></a>-->
+        <!--</li>-->
+        <li class="t1 clearfix">
+            <a href="#" class="clearfix"><span class="serviceIco6">退出</span><em></em></a>
+        </li>
+    </div>
+</div>
+
+</body>
+</html>

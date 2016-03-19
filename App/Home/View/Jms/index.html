@@ -1,0 +1,45 @@
+<include file="Public/header" />
+<div class="mui-index">
+    <header class="mui-bar mui-bar-nav" style="background: #eee;">
+        <a class="mui-iconl1"></a>
+        <h1 class="mui-title" style="color: #000;">加盟商</h1>
+    </header>
+
+    <div class="memberInfo">
+        <dl class="clearfix">
+            <dt>
+                <img <empty name='Think.session.jms_photo'>src="__PUBLIC__/images/member.jpg"<else />src="<{$Think.session.jms_photo}>"</empty>">
+            </dt>
+            <dd>
+                <p>加盟商：<{$Think.session.jms_leader}></p>
+                <{$Think.session.jms_nickname}>
+            </dd>
+        </dl>
+    </div>
+
+    <div class="clearfix memberList">
+        <li class="t1 clearfix">
+            <a href="<{:U('jms/buyOrder')}>" class="clearfix"><span class="serviceIco1">订单管理</span><em></em></a>
+        </li>
+        <li class="t1 clearfix">
+            <a href="<{:U('jms/sellOrder')}>" class="clearfix"><span class="serviceIco2">送货管理</span><em></em></a>
+        </li>
+        <li class="t1 clearfix">
+            <a href="<{:U('jms/kucun')}>" class="clearfix"><span class="serviceIco3">库存管理</span><em></em></a>
+        </li>
+        <li class="clearfix">
+            <a href="<{:U('jms/shangjia')}>" class="clearfix"><span class="serviceIco4">供应商管理</span><em></em></a>
+        </li>
+        <li class="clearfix">
+            <a href="<{:U('jms/goods')}>" class="clearfix"><span class="serviceIco5">商品明细</span><em></em></a>
+        </li>
+        <li class="clearfix">
+            <a href="<{:U('jms/table')}>" class="clearfix"><span class="serviceIco7">销售报表</span><em></em></a>
+        </li>
+        <li class="t1 clearfix">
+            <a href="<{:U('jms/logout')}>" class="clearfix"><span class="serviceIco6">退出</span><em></em></a>
+        </li>
+    </div>
+</div>
+</body>
+</html>

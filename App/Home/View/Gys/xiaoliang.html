@@ -1,0 +1,28 @@
+<include file="Public/header" />
+<div class="mui-index">
+    <header class="mui-bar mui-bar-nav">
+        <a href="<{:U('gys/index')}>" class="mui-iconl"></a>
+        <h1 class="mui-title">销量统计</h1>
+    </header>
+
+    <div class="clearfix allOrder">
+        <volist name="list" id="vo">
+            <li>
+                <dl class="clearfix">
+                    <dt><{$Goods[$vo['gid']]['name']}></dt>
+                    <dd>
+                        <a href="#">
+                            <div class="orderImg"><img src="<{$Goods[$vo['gid']]['pic']}>"></div>
+                            <div class="orderInfo">
+                                <p>总销量：<{$vo.num}></p>
+                            </div>
+                        </a>
+                    </dd>
+                </dl>
+
+            </li>
+        </volist>
+    </div>
+</div>
+</body>
+</html>

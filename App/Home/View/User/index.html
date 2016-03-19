@@ -1,0 +1,55 @@
+<include file="Public/header" />
+<div class="mui-index">
+    <header class="mui-bar mui-bar-nav" style="background: #eee;">
+        <a class="mui-iconl1"></a>
+        <h1 class="mui-title" style="color: #000;">消费者</h1>
+    </header>
+
+    <div class="memberInfo1">
+        <dl class="clearfix">
+            <dt>
+                <empty name='Think.session.vip_pic'>
+                    <img src="__PUBLIC__/images/member.jpg" />
+                    <else />
+                    <img src="<{$Think.session.vip_pic}>" />
+                </empty>
+            </dt>
+            <dd><{$Think.session.vip_name}></dd>
+        </dl>
+    </div>
+    <div class="memberIco clearfix">
+        <ul class="clearfix">
+            <li><a href="<{:U('user/orderList')}>?status=1" class="icon1">待支付</a></li>
+            <li><a href="<{:U('user/orderList')}>?status=3" class="icon2">待发货</a></li>
+            <li><a href="<{:U('user/orderList')}>?status=4" class="icon3">待收货</a></li>
+            <li><a href="<{:U('user/orderList')}>?status=5" class="icon4">待评价</a></li>
+            <li><a href="#" class="icon5">维权</a></li>
+        </ul>
+    </div>
+
+    <div class="clearfix memberList">
+        <li class="t1 clearfix">
+            <a href="<{:U('user/orderList')}>" class="clearfix"><span class="serviceIco1">全部订单</span><em></em></a>
+        </li>
+        <li class="t1 clearfix">
+            <a href="<{:U('user/myInfo')}>" class="clearfix"><span class="serviceIco2">个人信息</span><em></em></a>
+        </li>
+        <li class="clearfix">
+            <a href="<{:U('user/myAddress')}>" class="clearfix"><span class="serviceIco3">收货地址</span><em></em></a>
+        </li>
+        <li class="clearfix">
+            <a href="<{:U('user/password')}>" class="clearfix"><span class="serviceIco4">修改密码</span><em></em></a>
+        </li>
+        <li class="clearfix">
+            <a href="<{:U('user/myFav')}>" class="clearfix"><span class="serviceIco7">我的收藏</span><em></em></a>
+        </li>
+        <li class="clearfix">
+            <a href="<{:U('user/mycart')}>" class="clearfix"><span class="serviceIco8">我的购物车</span><em></em></a>
+        </li>
+        <li class="t1 clearfix">
+            <a href="<{:U('user/logout')}>" class="clearfix"><span class="serviceIco6">退出</span><em></em></a>
+        </li>
+    </div>
+
+
+<include file="Public/footer" />

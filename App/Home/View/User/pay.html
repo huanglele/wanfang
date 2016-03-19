@@ -1,0 +1,138 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>订单支付</title>
+    <script src="__PUBLIC__/js/jquery-1.8.3.min.js" language="javascript" type="text/javascript"></script>
+    <script type="text/javascript">
+        //调用微信JS api 支付
+        function jsApiCall()
+        {
+            WeixinJSBridge.invoke(
+                    'getBrandWCPayRequest',
+            <{$jsApiParamerers}>,
+                    function(res){
+//                            WeixinJSBridge.log(res.err_msg);
+                        if(res.err_msg == "get_brand_wcpay_request:ok") {
+                            //前端支付成功
+                            $('#pay').css('display','none');
+                            $('#check').css('display','block');
+                            //500毫秒之后进行服务器验证
+                            setTimeout(function(){
+                                check();
+                            },500)
+                        }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
+                            //用户取消支付
+                            alert('取消支付');
+                        }
+                    }
+            );
+        }
+
+        /**
+         * 检测是否支付成功
+         */
+        function check(){
+            $.ajax({
+                url:'<{:U(Wechat/check)}>',
+                dataType:'html',
+                data:{
+                    id:"<{$pid}>"
+                },
+                success:function(res){
+                    if(res){
+                        var jump = '__APP__/user/index';
+                        window.location.href = jump;
+                    }else{
+                        alert('请先完成支付'+res);
+                    }
+                }
+            })
+        }
+
+        function callpay()
+        {
+            if (typeof WeixinJSBridge == "undefined"){
+                if( document.addEventListener ){
+                    document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+                }else if (document.attachEvent){
+                    document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                    document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+                }
+            }else{
+                jsApiCall();
+            }
+        }
+    </script>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .header{
+            height: 36px;
+            line-height: 36px;
+            font-size: 20px;
+            text-align: center;
+            background: #2AF;
+            color: #FFFFFF;
+        }
+        .desc{
+            margin: 15px auto;
+            background: #DBDBDB;
+            padding: 10px 0px;
+        }
+        .desc dt {
+            float: left;
+            width: 100px;
+            overflow: hidden;
+            clear: left;
+            text-align: right;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 700;
+        }
+        .desc dd {
+            margin-left: 120px;
+        }
+        .btn button{
+            width: 90%;
+            display: block;
+            margin:20px auto;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+        }
+        #pay{
+            background-color: #FE6714;
+            border: 0px #FE6714 solid;
+        }
+        #check{
+            display: none;
+            background-color: #2af;
+            border: 0px #2af solid;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    收银柜台
+</header>
+<div class="desc">
+    <dl>
+        <dt>商品数量:</dt><dd><{$num}></dd>
+        <dt>支付金额:</dt><dd><{$money}></dd>
+    </dl>
+</div>
+<div class="btn">
+    <button id="pay" type="button" onclick="callpay()" >立即支付</button>
+    <button id="check" type="button" onclick="check()" >再次验证</button>
+</div>
+<footer>
+
+</footer>
+</body>
+</html>

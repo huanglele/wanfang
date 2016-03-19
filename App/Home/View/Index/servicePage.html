@@ -1,0 +1,39 @@
+<include file="Public/header" />
+<div class="mui-index">
+<header class="mui-bar mui-bar-nav">
+    <a href="<{:U('index/service')}>" class="mui-iconl"></a>
+    <h1 class="mui-title">便名服务</h1>
+</header>
+
+<div class="clearfix servicePage">
+    <volist name="list" id="vo">
+        <li>
+            <div class="servicePage_img">
+                <a href="#">
+                    <empty name="vo.img">
+                        <img src="images/service_pic.jpg">
+                        <else />
+                        <img src="<{$vo.img}>" />
+                    </empty>
+                </a>
+            </div>
+            <dl>
+                <dt>
+                    <span><a href="#"><{$vo.name}></a></span>
+                <div class="serviceStar">
+                    <div class="serviceStarCon" style="width: 80%;"></div>
+                </div>
+                </dt>
+                <dd>联系人：<{$vo.leader}></dd>
+                <!--<dd>微波炉 洗衣机 彩电</dd>-->
+                <dd>服务范围：<{$vo.area}></dd>
+            </dl>
+            <div class="serviceLinks">
+                <a href="tel:<{$vo.tel}>" class="service_order">预约</a>
+                <a href="tel:<{$vo.tel}>" class="service_tel">电话</a>
+            </div>
+        </li>
+    </volist>
+
+</div>
+<include file="Public/footer" />

@@ -1,0 +1,37 @@
+<include file="Public/header" />
+<div class="mui-index">
+    <header class="mui-bar mui-bar-nav">
+        <a href="<{:U('jms/index')}>" class="mui-iconl"></a>
+        <h1 class="mui-title">销售报表</h1>
+    </header>
+    <div class="serviceBox">
+    <ul class="clearfix">
+        <table>
+            <thead>
+            <tr>
+                <th>订单号</th>
+                <th>名称</th>
+                <th>数量</th>
+                <th>金额</th>
+                <th>钱数</th>
+                <th>时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="list" id="vo">
+                <tr>
+                    <td><{$vo.djh}></td>
+                    <td><{$vo.spmc}></td>
+                    <td><{$vo.sl}>(<{$vo.spdw}>)</td>
+                    <td><{$vo.spje}></td>
+                    <td><{$vo.money}></td>
+                    <td><{$vo.sj}></td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </ul>
+</div>
+</div>
+</body>
+</html>

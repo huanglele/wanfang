@@ -1,0 +1,141 @@
+<include file="Public/header" />
+<div class="mui-index">
+	<header class="mui-bar mui-bar-nav">
+		<!--<a class="mui-iconl"></a>-->
+		<a href="<{:U('user/myCart')}>" class="mui-iconr"></a>
+		<h1 class="mui-title">万方吉享</h1>
+	</header>
+
+	<div class="banner">
+		<img src="__PUBLIC__/images/banner.jpg">
+	</div>
+
+	<div class="search">
+		<form action="<{:U('index/goods')}>" method="get">
+			<dl class="clearfix">
+				<dt><input type="text" name="name" class="ipt" placeholder="早餐" /></dt>
+				<dd><input type="submit" class="btn" value="" /></dd>
+			</dl>
+		</form>
+	</div>
+
+	<div class="muiType clearfix">
+		<li><a href="<{:U('index/sort')}>"><span class="icon1"></span>全部分类</a></li>
+		<li><a href="<{:U('index/goods')}>"><span class="icon2"></span>其他商品</a></li>
+		<li><a href="<{:U('index/service')}>"><span class="icon3"></span>便民服务</a></li>
+		<li><a href="<{:U('index/findOld')}>"><span class="icon4"></span>助老服务</a></li>
+	</div>
+
+	<dl class="mui-shop clearfix">
+		<dt><a href="<{:U('index/goods')}>?name=面"><img src="__PUBLIC__/images/shop1.jpg"></a></dt>
+		<dd class="t1"><a href="<{:U('index/goods')}>?name=早餐"><img src="__PUBLIC__/images/shop2.jpg"></a></dd>
+		<dd><a href="<{:U('index/goods')}>?name=饭团"><img src="__PUBLIC__/images/shop3.jpg"></a></dd>
+	</dl>
+
+	<div class="muiList">
+		<div class="muiTit">
+			<span>主题馆</span>
+		</div>
+		<div class="zhuti">
+			<ul class="clearfix">
+				<li><a href="#"><img src="__PUBLIC__/images/list1.jpg"></a></li>
+				<li><a href="#"><img src="__PUBLIC__/images/list2.jpg"></a></li>
+				<li><a href="#"><img src="__PUBLIC__/images/list3.jpg"></a></li>
+				<li><a href="#"><img src="__PUBLIC__/images/list4.jpg"></a></li>
+				<li><a href="#"><img src="__PUBLIC__/images/list5.jpg"></a></li>
+				<li><a href="#"><img src="__PUBLIC__/images/list6.jpg"></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="muiList">
+		<div class="muiTit">
+			<span>加盟商</span>
+			<a href="#" class="more">更多</a>
+		</div>
+		<div class="jiameng">
+			<ul class="clearfix">
+				<volist name="dianpu" id="vo">
+					<li>
+						<a href="<{:U('index/goods')}>?storeid=<{$vo.id}>">
+							<empty name="vo.img">
+								<img src="__PUBLIC__/images/logo1.jpg">
+								<else />
+								<img src="<{$vo.img}>">
+							</empty>
+						</a>
+					</li>
+				</volist>
+				<!--
+                <li><a href="#"><img src="__PUBLIC__/images/logo1.jpg"></a></li>
+                <li><a href="#"><img src="__PUBLIC__/images/logo2.jpg"></a></li>
+                <li><a href="#"><img src="__PUBLIC__/images/logo3.jpg"></a></li>
+                <li><a href="#"><img src="__PUBLIC__/images/logo4.jpg"></a></li>
+                <li><a href="#"><img src="__PUBLIC__/images/logo1.jpg"></a></li>
+                <li><a href="#"><img src="__PUBLIC__/images/logo2.jpg"></a></li>
+                <li><a href="#"><img src="__PUBLIC__/images/logo3.jpg"></a></li>
+                <li><a href="#"><img src="__PUBLIC__/images/logo4.jpg"></a></li>
+                <li><a href="#"><img src="__PUBLIC__/images/logo1.jpg"></a></li>
+                <li><a href="#"><img src="__PUBLIC__/images/logo2.jpg"></a></li>
+                <li><a href="#"><img src="__PUBLIC__/images/logo3.jpg"></a></li>
+                <li><a href="#"><img src="__PUBLIC__/images/logo4.jpg"></a></li>-->
+			</ul>
+		</div>
+	</div>
+
+	<div class="muiList">
+		<div class="muiTit">
+			<span>最新商品</span>
+			<a href="<{:U('index/goods')}>?new=1" class="more">更多</a>
+		</div>
+		<div class="newShop">
+			<ul class="clearfix">
+				<volist name="new" id="vo">
+					<li>
+						<div class="newShopBox">
+							<div class="newShop_img"><a href="<{:U('index/item')}>?id=<{$vo.gid}>">
+								<empty name="vo.photo">
+									<img src="__PUBLIC__/images/product1.jpg">
+									<else />
+									<img src="<{$vo.photo}>">
+								</empty>
+							</a></div>
+							<dl class="newShop_text">
+								<dt><a href="<{:U('index/item')}>?id=<{$vo.gid}>"><{$vo.name}></a></dt>
+								<dd><span>¥<{$vo.vipprice}></span><a href="<{:U('index/item')}>?id=<{$vo.gid}>" class="orderBtn">订购</a></dd>
+							</dl>
+						</div>
+					</li>
+				</volist>
+			</ul>
+		</div>
+	</div>
+	<div class="muiList">
+		<div class="muiTit">
+			<span>热卖商品</span>
+			<a href="<{:U('index/goods')}>?hot=1" class="more">更多</a>
+		</div>
+		<div class="newShop">
+			<ul class="clearfix">
+				<volist name="hot" id="vo">
+					<li>
+						<div class="newShopBox">
+							<div class="newShop_img"><a href="<{:U('index/item')}>?id=<{$vo.gid}>">
+								<empty name="vo.photo">
+									<img src="__PUBLIC__/images/product1.jpg">
+									<else />
+									<img src="<{$vo.photo}>">
+								</empty>
+							</a></div>
+							<dl class="newShop_text">
+								<dt><a href="#"><{$vo.name}></a></dt>
+								<dd><span>¥<{$vo.vipprice}></span><a href="<{:U('index/item')}>?id=<{$vo.gid}>" class="orderBtn">订购</a></dd>
+							</dl>
+						</div>
+					</li>
+				</volist>
+			</ul>
+		</div>
+	</div>
+
+<include file="Public/footer" />

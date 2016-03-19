@@ -1,0 +1,57 @@
+<include file="Public/header" />
+
+<div class="mui-index" style="padding-bottom: 40px;">
+    <header class="mui-bar mui-bar-nav">
+        <a href="<{:U('user/myaddress')}>" class="mui-iconl"></a>
+        <h1 class="mui-title">新增收货地址</h1>
+    </header>
+<form action="<{:U('user/addAddress')}>" method="post">
+    <div class="exitBox">
+        <dl class="clearfix exitBoxT1">
+            <dt>姓名</dt>
+            <dd><input name="vip_consignee" value="<{$info.vip_consignee}>" type="text" class="exitIpt"></dd>
+        </dl>
+        <div class="exitLine"></div>
+        <dl class="clearfix exitBoxT1">
+            <dt>电话</dt>
+            <dd><input name="mobile" value="<{$info.mobile}>" type="text" class="exitIpt"></dd>
+        </dl>
+        <div class="exitLine"></div>
+        <dl class="clearfix exitBoxT1">
+            <dt>省份</dt>
+            <dd><input name="city" value="<{$info.city}>" type="text" class="exitIpt1"></dd>
+        </dl>
+        <div class="exitLine1"></div>
+        <dl class="clearfix exitBoxT1">
+            <dt>城市</dt>
+            <dd><input name="district" value="<{$info.district}>" type="text" class="exitIpt1"></dd>
+        </dl>
+        <div class="exitLine1"></div>
+       <!-- <dl class="clearfix exitBoxT1">
+            <dt>县区</dt>
+            <dd><input type="button" class="exitIpt1"></dd>
+        </dl>
+        <div class="exitLine1"></div>-->
+        <dl class="clearfix exitBoxT2">
+            <dt>详细地址</dt>
+            <dd><input name="address" value="<{$info.address}>" type="text" class="exitIpt"></dd>
+        </dl>
+        <div class="exitLine"></div>
+        <dl class="clearfix exitBoxT3">
+            <dt>邮政编码(选填)</dt>
+            <dd><input name="postcode" value="<{$info.postcode}>" type="text" class="exitIpt"></dd>
+        </dl>
+        <div class="exitLine"></div>
+    </div>
+    <div class="add">
+        <notempty name="info.vip_addressid">
+            <input type="hidden" name="vip_addressid" value="<{$info.vip_addressid}>">
+        </notempty>
+        <button type="submit" name="submit" class="dizhi">提交</button>
+    </div>
+</form>
+</div>
+
+
+</body>
+</html>

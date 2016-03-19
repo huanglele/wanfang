@@ -1,0 +1,36 @@
+<include file="Public/header" />
+<div class="mui-index" style="padding-bottom: 40px;">
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-iconl"></a>
+        <h1 class="mui-title">注册</h1>
+    </header>
+
+    <div class="loginTab">
+        <ul class="clearfix">
+            <li class="on"><a href="#">注册</a></li>
+            <li><a href="<{:U('user/login')}>?from=<{$from}>">登录</a></li>
+        </ul>
+    </div>
+<form action="<{:U('user/register')}>" method="post">
+    <div class="loginIpt"><input name="vip_name" type="text" class="ipt" placeholder="请输入您的用户名"></div>
+    <div class="loginIpt"><input name="vip_email" type="text" class="ipt" placeholder="请输入您的邮箱"></div>
+    <div class="loginIpt"><input name="vip_phone" type="text" class="ipt" placeholder="请输入您的电话"></div>
+    <div class="loginIpt"><input name="vip_password" type="password" class="ipt" placeholder="请输入密码"></div>
+    <div class="loginIpt"><input name="vip_password2" type="password" class="ipt" placeholder="请重新输入一遍密码"></div>
+    <div class="loginIpt1"><input type="submit" name="submit" class="btn" value="注册"></div>
+    <notempty name="$from">
+        <input type="hidden" name="from" value="<{$Think.get.from}>" />
+    </notempty>
+</form>
+
+    <div class="clearfix loginOther">
+		<span class="fl">
+			<strong>使用合作帐号登录</strong>
+			<a href="<{:U('user/qqlogin')}>" class="qq"></a>
+			<a href="<{:U('user/wxlogin')}>" class="wx"></a>
+		</span>
+        <span class="fr"><a href="#">忘记密码</a></span>
+    </div>
+</div>
+</body>
+</html>

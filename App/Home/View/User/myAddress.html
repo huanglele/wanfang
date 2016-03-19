@@ -1,0 +1,34 @@
+<include file="Public/header" />
+<div class="mui-index">
+    <header class="mui-bar mui-bar-nav">
+        <a href="<{:U('user/index')}>" class="mui-iconl"></a>
+        <h1 class="mui-title">收货地址</h1>
+    </header>
+
+    <div class="clearfix allOrder">
+        <volist name="list" id="vo">
+            <li>
+                <dl class="clearfix">
+                    <dt><{$vo.vip_consignee}></dt>
+                    <dd>
+                        <a href="<{:U('user/addAddress')}>?id=<{$vo.vip_addressid}>">
+                            <div class="orderInfo">
+                                <p>城市：<{$vo.city}></p>
+                                <p>区域：<{$vo.district}></p>
+                                <p>手机：<{$vo.mobile}></p>
+                            </div>
+                            <em class="orderIco"></em>
+                        </a>
+                    </dd>
+                </dl>
+                <div class="orderBtn clearfix">
+                    <a href="<{:U('user/delAddress')}>?id=<{$vo.vip_addressid}>" class="fl">删除</a>
+                    <a href="<{:U('user/addAddress')}>?id=<{$vo.vip_addressid}>" class="fr">修改</a>
+                </div>
+            </li>
+        </volist>
+    </div>
+    <div class="add" style="position: relative;">
+        <a  class="dizhi" href="<{:U('user/addAddress')}>">添加新地址</a>
+    </div>
+    <include file="Public/footer" />

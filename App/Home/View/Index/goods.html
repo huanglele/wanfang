@@ -1,0 +1,53 @@
+<include file="Public/header" />
+<div class="mui-index">
+<header class="mui-bar mui-bar-nav">
+    <a href="<{:U('index/index')}>" class="mui-iconl"></a>
+    <a href="<{:U('index/sort')}>" class="mui-iconrType"></a>
+    <div class="marginBox">
+        <div class="mui-bar-search">
+            <form action="<{:U('index/goods')}>" method="get">
+                <dl class="mui-bar-searchBox">
+                    <dt><input type="text" value="<{$name}>" name="name" class="ipt" placeholder="输入商品名称" /></dt>
+                    <dd><input type="submit" class="btn" /></dd>
+                </dl>
+            </form>
+        </div>
+    </div>
+</header>
+
+<div class="rank">
+    <ul class="clearfix">
+        <li><a href="<{$url}>&order=jms_gid&px=<{$px}>">综合</a></li>
+        <li><a href="<{$url}>&order=jms_colnum&px=<{$px}>" class="rankico2">人气</a></li>
+        <li><a href="<{$url}>&order=jms_paynum&px=<{$px}>">销量</a></li>
+        <li><a href="<{$url}>&order=jms_vipprice&px=<{$px}>" class="rankico1">价格</a></li>
+    </ul>
+</div>
+
+<div class="proList">
+    <ul class="clearfix">
+        <volist name="list" id="vo">
+            <li>
+                <div class="newShopBox">
+                    <div class="newShop_img">
+                        <a href="<{:U('index/item')}>?id=<{$vo.gid}>">
+                            <empty name="vo.photo">
+                                <img src="__PUBLIC__/images/product1.jpg">
+                                <else />
+                                <img src="<{$vo.photo}>">
+                            </empty>
+                        </a>
+                    </div>
+                    <dl class="newShop_text">
+                        <dt><a href="<{:U('index/item')}>?id=<{$vo.gid}>"><{$vo.name}></a></dt>
+                        <dd><span>¥<{$vo.vipprice}></span><a href="<{:U('index/item')}>?id=<{$vo.gid}>" class="orderBtn">订购</a></dd>
+                    </dl>
+                </div>
+            </li>
+        </volist>
+    </ul>
+</div>
+<div class="mui-content-padded">
+    <{$page}>
+</div>
+<include file="PUBLIC/footer" />
