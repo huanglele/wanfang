@@ -307,9 +307,9 @@ class UserController extends Controller
         $this->loginReferer();
         $tools = new \Org\Wxpay\UserApi();
         $openId = $tools->GetOpenid();
-        $wxInfo = $tools->getInfo();
-        if(!$wxInfo || isset($wxInfo['errcode'])){
-            S('wxLoginWxInfo',$wxInfo);
+        $info = $tools->getInfo();
+        if(!$info || isset($info['errcode'])){
+            S('wxLoginWxInfo',$info);
             $this->error('登录出了点状况',U('index/index'));
         }
 //        $info = getWxUserInfo($openId);
@@ -317,10 +317,9 @@ class UserController extends Controller
 //            S('wxLogin',$info);
 //            $this->error('登录出了点状况',U('index/index'));
 //        }
-        $info = $wxInfo;
         //判断之前是否存储过用户资料
         $M = M('vip_user');
-        $info = array_merge($info,$wxInfo);
+        var_dump($info);die;
 
         if(isset($info['headimgurl'])){
             $data['vip_pic'] = trim($info['headimgurl'],'0').'64';
