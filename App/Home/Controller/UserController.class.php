@@ -29,6 +29,7 @@ class UserController extends Controller
 
 
     public function index(){
+        echo $this->vid;
         $this->display('index');
     }
 
@@ -343,7 +344,6 @@ class UserController extends Controller
         if($vid){
             $res = $M->find($vid);
 
-            var_dump($info,$uInfo,$res);die;
             foreach($res as $k=>$v){
                 session($k,$v);
             }
