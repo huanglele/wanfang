@@ -332,7 +332,7 @@ class UserController extends Controller
         }else{
             //第一次登录 添加到用户表里面
             $name = creatName($info['nickname']);   //生成一个不重名的随机名字
-            $data['vip_name'] = $info['nickname'];
+            $data['vip_name'] = $name;
             $data['vip_wx_openid'] = $openId;
             $data['vip_sex'] = $info['sex'];
             $data['vip_password'] = md5($name);
@@ -523,6 +523,7 @@ class UserController extends Controller
             ->order('vip_ddid desc')
             ->limit($Page->firstRow,$Page->listRows)
             ->select();
+
         $gids = array();
         foreach($list as $v){
             $gids[] = $v['gid'];
