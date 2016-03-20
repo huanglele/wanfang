@@ -141,11 +141,11 @@ class UserController extends Controller
      * 我的购物车
      */
     public function myCart(){
-//        if(!cookie('wxopenid')){
-//            $tools = new \Org\Wxpay\JsApi();
-//            $openid = $tools->GetOpenid();
-//            cookie('wxopenid',$openid);
-//        }
+        if(!cookie('wxopenid')){
+            $tools = new \Org\Wxpay\JsApi();
+            $openid = $tools->GetOpenid();
+            cookie('wxopenid',$openid);
+        }
         $map['vip_buyer_id'] = $this->vid;
         $map['vip_pay_status'] = 0;
         $list = M('vipCart')->where($map)->select();
