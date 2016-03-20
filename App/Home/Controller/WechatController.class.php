@@ -29,7 +29,7 @@ class WechatController extends Controller{
             $cartM = M('vipCart');
             $mapC['vip_pay_status'] = 0;
             $mapC['vip_buyer_id'] = $id;
-            $mapC['vip_cart_id'] = $_POST['ids'];
+            $mapC['vip_cart_id'] = array('in',$_POST['ids']);
             $dataCart['vip_pay_status'] = 1;
             $ddM = M('vipDingdan');
         }else if($type=='jms'){
