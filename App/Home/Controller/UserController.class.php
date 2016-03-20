@@ -325,7 +325,6 @@ class UserController extends Controller
         }
         $uInfo = $M->where(array('vip_wx_openid'=>$openId))->field('vip_id')->find();
 
-        var_dump($info,$uInfo);die;
         if($uInfo){
             $vid = $uInfo['vip_id'];
             $data['vip_id'] = $vid;
@@ -343,6 +342,8 @@ class UserController extends Controller
         }
         if($vid){
             $res = $M->find($vid);
+
+            var_dump($info,$uInfo,$res);die;
             foreach($res as $k=>$v){
                 session($k,$v);
             }
