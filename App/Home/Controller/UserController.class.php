@@ -319,13 +319,13 @@ class UserController extends Controller
 //        }
         //判断之前是否存储过用户资料
         $M = M('vip_user');
-        var_dump($info);die;
 
         if(isset($info['headimgurl'])){
             $data['vip_pic'] = trim($info['headimgurl'],'0').'64';
         }
         $uInfo = $M->where(array('vip_wx_openid'=>$openId))->field('vip_id')->find();
 
+        var_dump($info,$uInfo);die;
         if($uInfo){
             $vid = $uInfo['vip_id'];
             $data['vip_id'] = $vid;
