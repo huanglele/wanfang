@@ -29,7 +29,6 @@ class UserController extends Controller
 
 
     public function index(){
-        echo $this->vid;
         $this->display('index');
     }
 

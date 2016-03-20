@@ -9,6 +9,7 @@ function creatName($name){
     if(!$name){
         $name = date('YmdHis');
     }
+
     if(M('vipUser')->where(array('vip_name'=>$name))->find()){
         $name .= rand(0,9);
         $name = creatName($name);
