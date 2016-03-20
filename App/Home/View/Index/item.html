@@ -12,7 +12,12 @@
         </div>
         <dl class="clearfix pro_aboutTitle">
             <dt><{$info.jms_gname}></dt>
-            <dd><a href="<{:U('user/addFav')}>?ac=do&id=<{$info.gid}>">收藏</a></dd>
+            <if condition="($fav)">
+                <dd><a href="<{:U('user/addFav')}>?ac=undo&id=<{$info.jms_gid}>">取消收藏</a></dd>
+                <else />
+                <dd><a href="<{:U('user/addFav')}>?ac=do&id=<{$info.jms_gid}>">收藏</a></dd>
+            </if>
+
         </dl>
         <div class="pro_aboutPrice">本店售价：<b>¥<{$info.jms_vipprice}></b>¥<{$info.jms_price}></div>
         <dl class="clearfix pro_aboutNum">
@@ -69,8 +74,9 @@
         })
         $('#num').change(function(){
             var num = $('#num').val();
-            if(isNaN(num)){
-                num = 1;
+            if(isNaN(num) || num<1){
+//                num = 1;
+                $('#num').val(1);
             }
             allMoney();
         })

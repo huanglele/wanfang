@@ -354,7 +354,7 @@ class UserController extends Controller
                 $jump = U('index');
             }
             session('referer',null);
-            $this->success('登录成功',U('user/index'));
+            $this->success('登录成功',$jump);
         }else{
             $this->error('登录失败');
         }
@@ -390,6 +390,7 @@ class UserController extends Controller
      */
     public function password(){
         if(isset($_POST['submit'])){
+            if(I('post.renew')!=I('post.new')) $this->error('两次密码不一致');
             $data['vip_password'] = md5(I('post.new'));
             $map['vip_password'] = md5(I('post.old'));
             $data['vip_id'] = $map['vip_id'] = $this->vid;

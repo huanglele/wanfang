@@ -145,7 +145,7 @@ class IndexController extends Controller
         //搜索某个名字的商品
         $name = I('get.name');
         if($name){
-            $map['jms_gname'] = $name;
+            $map['jms_gname'] = array('like','%'.$name.'%');
         }
         $this->assign('name',$name);
         $this->map = $map;
@@ -198,7 +198,14 @@ class IndexController extends Controller
         $id = I('get.id');
         $info = M('jms_goods')->find($id);
         if(!$info) $this->error('页面不存在');
-//        var_dump($info);
+        $ids = session('vip_favorites');
+        $idsArr = explode(',',$ids);
+        if(in_array($id,$idsArr)){
+            $fav = true;
+        }else{
+            $fav = false;
+        }
+        $this->assign('fav',$fav);
         $this->assign('info',$info);
         $this->display('item');
     }
