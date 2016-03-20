@@ -141,11 +141,11 @@ class UserController extends Controller
      * 我的购物车
      */
     public function myCart(){
-        if(!cookie('wxopenid')){
-            $tools = new \Org\Wxpay\JsApi();
-            $openid = $tools->GetOpenid();
-            cookie('wxopenid',$openid);
-        }
+//        if(!cookie('wxopenid')){
+//            $tools = new \Org\Wxpay\JsApi();
+//            $openid = $tools->GetOpenid();
+//            cookie('wxopenid',$openid);
+//        }
         $map['vip_buyer_id'] = $this->vid;
         $map['vip_pay_status'] = 0;
         $list = M('vipCart')->where($map)->select();
@@ -176,6 +176,9 @@ class UserController extends Controller
         $addid = I('post.addressid');
         $info = M('vipAddress')->find($addid);
         if($info && $info['vip_name']==session('vip_name')){
+            if(empty($_POST['ids'])){
+                $this->error('请选择需要结算的商品');
+            }
             if(!cookie('wxopenid')) $this->error('参数错误',U('user/myCart'));
             $data['uname'] = $info['vip_name']; //
             $data['name'] = $info['vip_consignee']; //收货人

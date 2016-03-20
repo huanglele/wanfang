@@ -35,6 +35,7 @@
                         </dd>
                     </dl>
                     <div class="orderBtn clearfix">
+                        <input type="checkbox" checked="checked" name="ids[]" value="<{$vo.vip_cart_id}>">
                         <a href="<{:U('index/item')}>?id=<{$vo.vip_goods_id}>" class="fl">查看商品</a>
                         <a href="<{:U('user/delCart')}>?id=<{$vo.vip_cart_id}>" class="fr">移除购物车</a>
                     </div>
@@ -73,6 +74,13 @@
             showAddress();
         })
         showAddress();
+        $('form').submit(function(){
+            chooseGoods = $('input[name="ids[]"]:checked').length;
+            if(!chooseGoods){
+                alert('请勾选需要结算的商品1');
+                return false;
+            }
+        })
     })
 
     function showAddress(){
