@@ -14,14 +14,20 @@
     <div class="kuList">
         <ul class="clearfix">
             <li class="tab">
+                <span><a href="<{:U('jms/kucun')}>?type=all">全部</a></span>
+                <span><a href="<{:U('jms/kucun')}>?type=on">上架中</a></span>
+                <span><a href="<{:U('jms/kucun')}>?type=off">下架中</a></span>
+            </li>
+
+            <li class="tab">
                 <span>产品名称</span>
-                <span>库存</span>
+                <span>库存【上下架】</span>
                 <span>状态</span>
             </li>
             <volist name="list" id="v">
                 <li class="cur">
                     <span><{$v.gname}></span>
-                    <span><{$v.num}></span>
+                    <span><{$v.num}>【<eq name="v.status" value="0">下架中<else />上架中</eq>】</span>
                     <span><elt name="v.num" value="10">需补货<else />正常</elt></span>
                 </li>
             </volist>

@@ -37,7 +37,11 @@ class JmsController extends Controller
      * 采购订单列表(jms_dingdan)
      */
     public function buyOrder(){
+        $status = I('get.status',0,'number_int');
         $map = array();
+        if($status){
+            $map['jms_state'] = $status;
+        }
         $map['jms_uid'] = $this->jid;
         $M = M('jmsDingdan');
         $count = $M->where($map)->count();
@@ -48,6 +52,7 @@ class JmsController extends Controller
 //        var_dump($list);
         $this->assign('OrderStatus',C('OrderStatus'));
         $this->assign('page',$page);
+        $this->assign('status',$status);
         $this->display('buyList');
     }
 
@@ -82,7 +87,7 @@ class JmsController extends Controller
         $Page = new \Think\Page($count,20);
         $page = $Page->show();
         $list = $M->where($map)
-            ->field('vip_ddid as oid,vip_uname as uname,vip_ddage as ddage,vip_phone as phone,vip_ddtime as time,vip_ddnum as num,vip_price as price,vip_ddstate as state,vip_gid as gid')
+            ->field('vip_ddid as oid,vip_uname as uname,vip_ddage as ddage,vip_phone as phone,vip_ddtime as time,vip_ddnum as num,vip_price as price,vip_ddstate as state,vip_gid as gid,vip_ddact as ddact')
             ->order('vip_ddid desc')
             ->limit($Page->firstRow,$Page->listRows)
             ->select();
@@ -95,10 +100,11 @@ class JmsController extends Controller
         }else {
             $picArr = M('jmsGoods')->where(array('jms_gid' => array('in', $gids)))->getField('jms_gid,jms_photo', true);
         }
-        var_dump($list,$picArr);
+//        var_dump($list,$picArr);
         $this->assign('picArr',$picArr);
         $this->assign('list',$list);
         $this->assign('page',$page);
+        $this->assign('status',$status);
         $this->assign('OrderStatus',C('OrderStatus'));
         $this->display('sellList');
     }
@@ -133,11 +139,18 @@ class JmsController extends Controller
     }
 
     public function kucun(){
+        $type = I('get.type');
+        $map = array();
+        if($type=='on'){
+            $map['jms_status'] = 1;
+        }elseif($type=='off'){
+            $map['jms_status'] = 0;
+        }
         $M = M('jmsGoods');
         $count = $M->count();
         $Page = new \Think\Page($count);
         $show = $Page->show();
-        $list = $M->order('jms_gid desc')->field('jms_gname as gname,jms_num as num')->limit($Page->firstRow,$Page->listRows)->select();
+        $list = $M->where($map)->order('jms_gid desc')->field('jms_gname as gname,jms_num as num,jms_status as status')->limit($Page->firstRow,$Page->listRows)->select();
         $this->assign('page',$show);
         $this->assign('list',$list);
         $this->display('kucun');
@@ -148,7 +161,7 @@ class JmsController extends Controller
         $count = $M->count();
         $Page = new \Think\Page($count);
         $show = $Page->show();
-        $list = $M->order('gys_id desc')->field('gys_nickname as nickname,gym_phone as phone,gys_area as area')->limit($Page->firstRow,$Page->listRows)->select();
+        $list = $M->order('gys_id desc')->field('gys_nickname as nickname,gym_phone as phone,gys_address as address')->limit($Page->firstRow,$Page->listRows)->select();
         $this->assign('page',$show);
         $this->assign('list',$list);
         $this->display('shangjia');
@@ -158,6 +171,21 @@ class JmsController extends Controller
      * 利润分析
      */
     public function table(){
+        $time1 = urldecode(I('get.time1'));
+        $time2 = urldecode(I('get.time2'));
+        if(!$time2){
+            $time2 = date('Y-m-d H:i:s');
+        }
+        if(!$time1){
+            $time1 = date('Y-m-1 H:i:s');
+        }
+        $this->assign('time1',$time1);
+        $this->assign('time2',$time2);
+        $map['ck_sj'] = array(array('egt',$time1),array('elt',$time2));
+        $spid = I('get.spid');
+        if($spid){
+            $map['ck_spid'] = $spid;
+        }
         $map['jms_id'] = $this->jid;
         $M = M('jmsCkb');
         $count = $M->where($map)->count();

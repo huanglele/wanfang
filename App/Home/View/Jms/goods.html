@@ -14,7 +14,7 @@
                     <dd>
                         <a href="#">
                             <div class="orderImg">
-                                <img src="<{$vo.photo}>">
+                                <img src="<{$vo.jms_photo}>">
                             </div>
                             <div class="orderInfo">
                                 <p>条码：<{$vo.jms_tiaoma}></p>
@@ -22,6 +22,7 @@
                                 <p>订单金额：¥<{$vo.jms_price}></p>
                                 <p>添加时间：<{$vo.jms_uptime}></p>
                                 <p>商品编号：<{$vo.jms_spbh}></p>
+                                <p>数量：<{$vo.jms_num}></p>
                                 <p>状态：<eq name="vo.jms_status" value="1">上架<else />下架</eq></p>
                             </div>
                             <!--<em class="orderIco"></em>-->

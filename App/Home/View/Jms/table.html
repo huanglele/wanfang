@@ -4,12 +4,18 @@
         <a href="<{:U('jms/index')}>" class="mui-iconl"></a>
         <h1 class="mui-title">销售报表</h1>
     </header>
+    <div>
+        <form action="<{:U('jms/table')}>">
+            <input name="time1" type="date" value="<{$time1}>">
+            <input name="time2" type="date" value="<{$time2}>">
+            <input type="submit" name="分析">
+        </form>
+    </div>
     <div class="serviceBox">
     <ul class="clearfix">
         <table>
             <thead>
             <tr>
-                <th>订单号</th>
                 <th>名称</th>
                 <th>数量</th>
                 <th>金额</th>
@@ -20,8 +26,7 @@
             <tbody>
             <volist name="list" id="vo">
                 <tr>
-                    <td><{$vo.djh}></td>
-                    <td><{$vo.spmc}></td>
+                    <td><a href="<{:U('jms/table')}>?time1=<{$time1}>&time2=<{$time2}>&spid=<{$vo.spid}>"><{$vo.spmc}></a></td>
                     <td><{$vo.sl}>(<{$vo.spdw}>)</td>
                     <td><{$vo.spje}></td>
                     <td><{$vo.money}></td>

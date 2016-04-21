@@ -5,6 +5,20 @@
         <h1 class="mui-title">采购订单</h1>
     </header>
 
+    <div class="clearfix orderTab">
+        <li >
+        <a href="<{:U('Jms/buyOrder')}>">全部</a>
+        </li>
+        <li <eq name="status" value="3">class="orderOn"</eq> >
+        <a href="<{:U('Jms/buyOrder')}>?status=3">待发货</a>
+        </li>
+        <li <eq name="status" value="4">class="orderOn"</eq> >
+        <a href="<{:U('Jms/buyOrder')}>?status=4">待确认收货</a>
+        </li>
+        <li <eq name="status" value="6">class="orderOn"</eq> >
+        <a href="<{:U('Jms/buyOrder')}>?status=6">已完成</a>
+        </li>
+    </div>
 
     <div class="clearfix allOrder">
         <volist name="list" id="vo">
@@ -17,6 +31,7 @@
                                 <p>商品名字：<{$vo.jms_gname}></p>
                                 <p>订单编号：<{$vo.jms_ddnum}></p>
                                 <p>订单金额：¥<{$vo.jms_price}></p>
+                                <p>商品数量：<{$vo.jms_ddage}></p>
                                 <p>下单时间：<{$vo.jms_ddtime}></p>
                                 <p>付款方式：<{$vo.jms_ddact}></p>
                                 <p>供应商：<{$vo.jms_store}></p>

@@ -2,7 +2,7 @@
 <div class="mui-index">
     <header class="mui-bar mui-bar-nav">
         <a href="<{:U('jms/index')}>" class="mui-iconl"></a>
-        <h1 class="mui-title">库存管理</h1>
+        <h1 class="mui-title">供应商管理</h1>
     </header>
 
 
@@ -15,9 +15,9 @@
     <div class="kuInfo">
         <volist name="list" id="vo">
             <dl>
-                <dt><span class="t1"></span>　<{$vo.nickname}></dt>
+                <dd><{$vo.nickname}></dd>
+                <dt><span class="t1"></span>　<{$vo.address}></dt>
                 <dt><span class="t2"></span>　<{$vo.phone}></dt>
-                <dd><{$vo.area}></dd>
             </dl>
         </volist>
     </div>

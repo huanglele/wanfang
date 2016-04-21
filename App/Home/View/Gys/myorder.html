@@ -5,17 +5,20 @@
         <h1 class="mui-title"><{$OrderStatus[$status]}>订单</h1>
     </header>
 
-    <!--<div class="clearfix orderTab">-->
-        <!--<li <eq name="status" value="3">class="orderOn"</eq> >-->
-        <!--<a href="<{:U('Jms/sellOrder')}>?status=3">待发货</a>-->
-        <!--</li>-->
-        <!--<li <eq name="status" value="4">class="orderOn"</eq> >-->
-        <!--<a href="<{:U('Jms/sellOrder')}>?status=4">待确认收货</a>-->
-        <!--</li>-->
-        <!--<li <eq name="status" value="6">class="orderOn"</eq> >-->
-        <!--<a href="<{:U('Jms/sellOrder')}>?status=6">已完成</a>-->
-        <!--</li>-->
-    <!--</div>-->
+    <div class="clearfix orderTab">
+        <li>
+        <a href="<{:U('gys/myorder')}>">全部</a>
+        </li>
+        <li <eq name="status" value="3">class="orderOn"</eq> >
+        <a href="<{:U('gys/myorder')}>?status=3">待发货</a>
+        </li>
+        <li <eq name="status" value="4">class="orderOn"</eq> >
+        <a href="<{:U('gys/myorder')}>?status=4">待确认收货</a>
+        </li>
+        <li <eq name="status" value="6">class="orderOn"</eq> >
+        <a href="<{:U('gys/myorder')}>?status=6">已完成</a>
+        </li>
+    </div>
 
     <div class="clearfix allOrder">
         <volist name="list" id="vo">
@@ -27,10 +30,12 @@
                             <div class="orderImg"><img src="<{$picArr[$vo['gid']]}>"></div>
                             <div class="orderInfo">
                                 <p>订单编号：<{$vo.num}></p>
-                                <p>订单金额：¥<{$vo.price}></p>
-                                <p>订单数量：¥<{$vo.ddage}></p>
-                                <p>消费者：¥<{$vo.uname}></p>
+                                <p>订单价钱：¥<{$vo.price}></p>
+                                <p>订单数量：<{$vo.ddage}></p>
                                 <p>下单时间：<{$vo.time}></p>
+                                <p>消费者：<{$vo.uname}></p>
+                                <p>联系方式：<{$vo.phone}></p>
+                                <p>收货地址：<{$vo.address}></p>
                             </div>
                             <!--<em class="orderIco"></em>-->
                         </a>

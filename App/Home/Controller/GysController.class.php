@@ -77,7 +77,7 @@ class GysController extends Controller
         $status = I('get.status',0,'number_int');
         $map = array();
         if($status){
-            $map['jms_ddstate'] = $status;
+            $map['jms_state'] = $status;
         }
         $map['jms_sid'] = $this->gid;
         $M = M('jmsDingdan');
@@ -85,7 +85,7 @@ class GysController extends Controller
         $Page = new \Think\Page($count,20);
         $page = $Page->show();
         $list = $M->where($map)
-            ->field('jms_ddid as oid,jms_uname as uname,jms_ddage as ddage,jms_phone as phone,jms_ddtime as time,jms_ddnum as num,jms_price as price,jms_state as state,jms_gid as gid')
+            ->field('jms_ddid as oid,jms_address as address,jms_phone as phone,jms_uname as uname,jms_ddage as ddage,jms_phone as phone,jms_ddtime as time,jms_ddnum as num,jms_price as price,jms_state as state,jms_gid as gid')
             ->order('oid desc')
             ->limit($Page->firstRow,$Page->listRows)
             ->select();
@@ -98,12 +98,26 @@ class GysController extends Controller
         }else {
             $picArr = M('gysGoods')->where(array('gys_gid' => array('in', $gids)))->getField('gys_gid,gys_photo', true);
         }
-//        var_dump($picArr);
         $this->assign('picArr',$picArr);
         $this->assign('list',$list);
         $this->assign('page',$page);
+        $this->assign('status',$status);
         $this->assign('OrderStatus',C('OrderStatus'));
     }
+
+    /**
+     * 处理销售订单
+     */
+    public function doSell(){
+        $id = I('get.id');
+        $ac = I('get.ac');
+        $data['jms_ddid'] = $id;
+        $data['jms_state'] = $ac;
+        $data['jms_sid'] = $this->gid;
+        M('jmsDingdan')->save($data);
+        $this->success('操作成功');
+    }
+
 
     /**
      * 销量统计

@@ -2,10 +2,13 @@
 <div class="mui-index">
     <header class="mui-bar mui-bar-nav">
         <a href="<{:U('jms/index')}>" class="mui-iconl"></a>
-        <h1 class="mui-title"><{$OrderStatus[$status]}>订单</h1>
+        <h1 class="mui-title"><{$OrderStatus[$status]}>销售订单</h1>
     </header>
 
     <div class="clearfix orderTab">
+        <li>
+        <a href="<{:U('Jms/sellOrder')}>">全部</a>
+        </li>
         <li <eq name="status" value="3">class="orderOn"</eq> >
         <a href="<{:U('Jms/sellOrder')}>?status=3">待发货</a>
         </li>
@@ -28,9 +31,10 @@
                             <div class="orderInfo">
                                 <p>订单编号：<{$vo.num}></p>
                                 <p>订单金额：¥<{$vo.price}></p>
-                                <p>订单数量：¥<{$vo.ddage}></p>
-                                <p>消费者：¥<{$vo.uname}></p>
+                                <p>商品数量：<{$vo.ddage}></p>
+                                <p>消费者：<{$vo.uname}></p>
                                 <p>下单时间：<{$vo.time}></p>
+                                <p>付款方式：<{$vo.ddact}></p>
                             </div>
                             <!--<em class="orderIco"></em>-->
                         </a>
