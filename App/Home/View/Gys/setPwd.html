@@ -1,0 +1,31 @@
+<include file="Public/header" />
+<div class="mui-index">
+    <header class="mui-bar mui-bar-nav">
+        <a href="<{:U('gys/index')}>" class="mui-iconl"></a>
+        <h1 class="mui-title">密码管理</h1>
+    </header>
+
+    <form action="<{:U('gys/setPwd')}>" method="post">
+        <div class="exitBox">
+            <dl class="clearfix exitBoxT1">
+                <dt>自己</dt>
+                <dd><input name="gys_password" value="<{$info.gys_password}>" type="text" class="exitIpt"></dd>
+            </dl>
+            <div class="exitLine"></div>
+
+            <dl class="clearfix exitBoxT1">
+                <dt>订单</dt>
+                <dd><input name="gys_pwd1" value="<{$info.gys_pwd1}>" type="text" class="exitIpt"></dd>
+            </dl>
+            <div class="exitLine"></div>
+
+            <dl class="clearfix exitBoxT1">
+                <dt>销量</dt>
+                <dd><input name="gys_pwd2" value="<{$info.gys_pwd2}>" type="text" class="exitIpt"></dd>
+            </dl>
+            <div class="exitLine"></div>
+        </div>
+        <div class="add">
+            <button type="submit" name="submit" value="sub" class="dizhi">提交</button>
+        </div>
+    </form>

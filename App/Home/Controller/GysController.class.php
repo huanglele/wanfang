@@ -33,13 +33,26 @@ class GysController extends Controller
     public function login(){
         if(isset($_POST['submit'])){
             $map['gys_name'] = I('post.gys_name');
-            $map['gys_password'] = I('post.gys_password');
-            $info = M('gysUser')->where($map)->find();
+            $pwd = I('post.gys_password');
+            $info = M('gysUser')->field('gys_id,gys_password,gys_pwd1,gys_pwd2')->where($map)->find();
             if($info){
-                foreach($info as $k=>$v){
-                    session($k,$v);
+                $isPwdIsTrue = true;
+                switch($pwd){
+                    case $info['gys_password']:$role = 0;break;
+                    case $info['gys_pwd1']:$role = 1;break;
+                    case $info['gys_pwd2']:$role = 2;break;
+                    case $info['gys_pwd3']:$role = 3;break;
+                    default:$role = null;$isPwdIsTrue==false;break;
                 }
-                $this->success('登录成功',U('index'));
+                if($isPwdIsTrue){
+                    session('role',$role);
+                    foreach($info as $k=>$v){
+                        session($k,$v);
+                    }
+                    $this->success('登录成功',U('index'));
+                }else{
+                    $this->error('密码错误');
+                }
             }else{
                 $this->error('登录失败');
             }
@@ -74,6 +87,7 @@ class GysController extends Controller
 
 
     private function getOrderInfo(){
+        $this->checkRole(1);
         $status = I('get.status',0,'number_int');
         $map = array();
         if($status){
@@ -109,6 +123,7 @@ class GysController extends Controller
      * 处理销售订单
      */
     public function doSell(){
+        $this->checkRole(1);
         $id = I('get.id');
         $ac = I('get.ac');
         $data['jms_ddid'] = $id;
@@ -124,6 +139,7 @@ class GysController extends Controller
      * 数据来自 jms_dingdan表
      */
     public function xiaoliang(){
+        $this->checkRole(2);
         $map['jms_sid'] = $this->gid;
         $map['jms_state'] = array('egt',3);
         $M = M('jmsDingdan');
@@ -143,6 +159,7 @@ class GysController extends Controller
     }
 
     public function money(){
+        $this->checkRole(0);
         $map['jms_sid'] = $this->gid;
         $map['jms_state'] = array('egt',3);
         $M = M('jmsDingdan');
@@ -161,4 +178,39 @@ class GysController extends Controller
         $this->display('money');
     }
 
+    /**
+     * 管理员设置不同的账户密码
+     */
+    public function setPwd(){
+        $this->checkRole(0);
+        if(isset($_POST['submit'])){
+            $data = $_POST;
+            foreach($data as $v){
+                if($v == ''){
+                    $this->error('不能为空');die;
+                }
+            }
+            $data['gys_id'] = $this->gid;
+            M('gysUser')->save($data);
+            $this->success('修改成功');
+        }else{
+            $info = M('gysUser')->field('gys_password,gys_pwd1,gys_pwd2')->find($this->gid);
+            $this->assign('info',$info);
+            $this->display('setPwd');
+        }
+    }
+
+    /**
+     * 检测权限
+     * @param $role
+     * @return bool
+     */
+    public function checkRole($role){
+        if(0==session('role') || $role==session('role')){
+            return true;
+        }else{
+//            return false;
+            $this->error('没有权限');die;
+        }
+    }
 }
